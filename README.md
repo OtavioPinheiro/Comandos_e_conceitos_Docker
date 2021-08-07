@@ -33,7 +33,7 @@ O Docker pode ser utilizado no Windows por meio de virtulização. Para isso há
    - Em 2020 a Microsoft lança a **versão 2**. Agora com:
      - Execução completa do kernel do Linux;
      - Manipulação através do terminal;
-     - Grande desempenho ao executar aplicativos dentro do Linux. Ambiente fora do `mnt/c/user`;
+     - Grande desempenho ao executar aplicativos dentro do Linux. Ambiente fora do `mnt/c/`;
      - Suporte ao Docker e Kubernetes;
      - Usa o Virtual Plataform como base para execução.
      - Não é mais necessário ter a versão PRO, mas é necessário ter o Windows 10 versão 19.03 ou superior e no mínimo 4GB de RAM. Além de ter o Virtual Machine Platform habilitado.
@@ -49,9 +49,21 @@ Passos:
 7. Abra a Microsoft Store e baixe a distribuição Linux desejada. Recomenda-se instalar as versões LTS.
 8. Pronto
 
+**Dicas**:
+Back fácil do sistema Linux inteiro.
+Passos:
+1. Acessar o caminho em que o Linux foi instalado. Normalmente estára dentro de `NomedoUsuário\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_blabla\LocalState`
+
+Lembrando que um jeito fácil da acessar a pasta AppData é abrindo qualquer pasta no Windows e, na barra de endereço, digitar `%appdata%` que você será redirecionado para a pasta `AppData/Roaming`. Daí basta voltar para pasta AppData.
+
+2. 
+
 ### Mac
+
 
 ## Comandos
 
 
 ## Referências
+- Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
+- 
