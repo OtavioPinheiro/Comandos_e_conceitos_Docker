@@ -81,7 +81,7 @@ Lista de comandos Docker
 | `docker ps`              | Lista os containers que estão **rodando** na máquina |
 | `docker ps -a`           | Lista os containers que estão na máquina             |
 | `docker run hello-world` | Tenta executar a imagem hello-world, senão encontrar a imagem irá executar o download da mesma para a máquina e, então, executá-la e depois finalizará o processo, matando a imagem |
-| `docker run -it nomedaimagem:tagdaimagem comandoaserexecutado` | Executa o docker de modo iterativo (`-i` que significa *iterative*, ou iterativo), para manter o processo rodando, e de modo que seja possível executar comandos (`-t` que significa *tti*). O Docker então, irá rodar a imagem tageada (ou não) passada como parâmetro e depois executar o comando passado. Caso a imagem não exista, o Docker irá tentar baixá-la. Exemplo: `docker run -it ubuntu:latest bash` |
+| `docker run -it nomedaimagem:tagdaimagem comandoaserexecutado` | Executa o docker de modo iterativo (`-i` que significa *iterative*, ou iterativo), para manter o processo rodando, e de modo que seja possível executar comandos (`-t` que significa *tty*). O Docker então, irá rodar a imagem tageada (ou não) passada como parâmetro e depois executar o comando passado. Caso a imagem não exista, o Docker irá tentar baixá-la. Exemplo: `docker run -it ubuntu:latest bash` |
 | `` | |
 | `` | |
 | `` | |
