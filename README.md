@@ -75,6 +75,12 @@ Passos:
 
 
 ## Comandos
+Lista de comandos Docker
+| Comando                  | O que faz?                                           |
+|--------------------------|------------------------------------------------------|
+| `docker ps`              | Lista os containers que estão **rodando** na máquina |
+| `docker ps -a`           | Lista os containers que estão na máquina             |
+| `docker run hello-world` | Tenta executar a imagem hello-world, senão encontrar a imagem irá executar o download da mesma para a máquina e, então, executá-la e depois finalizará o processo, matando a imagem |
 
 
 ## Referências
