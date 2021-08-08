@@ -89,13 +89,22 @@ Lista de comandos Docker
 | `docker rm`. | Remove um ou mais containers pelo id. |
 | `docker rmi`. | Remove uma ou mais imagens pelo id. |
 | `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
+| `docker volume`. | Gerenciamento dos volumes no Docker. |
+| `docker volume ls` | Lista todos os volumes no host. |
 | `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
-| `docker images`. | Lista as imagens. |
-| `docker images -a`. | Lista todas as imagens. |
+| `docker images`. | Lista as imagens disponíveis no host. |
+| `docker images -a`. | Lista todas as imagens disponíveis no host. |
 | `docker rmi $(docker images -q)`. | Remove todas as imagens listadas. |
 | `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
 | `docker rm $(docker ps -a -q)`. | Remove todos os containers listados. |
-| `` | |
+| `docker stats`. | Exibe informações do uso de CPU, memória e rede. |
+| `docker top`. | Exibe os processos rodando em um container. |
+| `docker rename`. | Renomeia um container existente. |
+| `docker restart`. | Reinicia um container que está rodando ou parado. |
+| `docker pause`. | Pausa um container ativo. |
+| `docker pull`. | Faz um pull (download) de uma imagem a partir de um servidor, por padrão o docker hub. |
+| `docker push`. | Faz um push (upload) de uma imagem a partir de uma servidor, por padrão o docker hub. |
+| ``. |  |
 
 ## Referências
 - Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
