@@ -75,7 +75,7 @@ Passos:
 
 
 ## Comandos
-Lista de comandos Docker
+Lista de comandos do Docker
 | Comando                  | O que faz?                                           |
 |--------------------------|------------------------------------------------------|
 | `docker ps`. | Lista os containers que estão **rodando** na máquina e o seu status. |
@@ -104,7 +104,10 @@ Lista de comandos Docker
 | `docker pause`. | Pausa um container ativo. |
 | `docker pull`. | Faz um pull (download) de uma imagem a partir de um servidor, por padrão o docker hub. |
 | `docker push`. | Faz um push (upload) de uma imagem a partir de uma servidor, por padrão o docker hub. |
-| ``. |  |
+| `docker run -p porta_do_host:porta_do_container nome_da_imagem`. | Cria um container baseado na imagem passada e realiza um redirecionamento da porta do container para a porta do host. Exemplo: `docker run -p 8080:80 nginx`. |
+| `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
+| `docker run --name nome_do_container nome_da_imagem`. | Cria um container com o nome passado por parâmetro baseado na imagem informada. |
+| `docker exec`. |  |
 
 ## Referências
 - Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
