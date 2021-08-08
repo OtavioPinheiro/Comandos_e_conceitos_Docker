@@ -12,6 +12,16 @@ Explicar e demonstrar os comandos e conceitos do Docker.
 
 
 ## Conceitos
+Alguns conceitos sobre Docker.
+### O que são imagens?
+
+
+### O que são containers?
+
+
+### O que são volumes?
+
+
 ## Como se instala?
 Antes de prosseguir com as instalações é importante lembrar que Docker foi construído para ser usado nos SO's Linux, para é possível utilizá-lo em outros sistemas.
 
@@ -89,7 +99,10 @@ Lista de comandos do Docker
 | `docker rm`. | Remove um ou mais containers pelo id. |
 | `docker rmi`. | Remove uma ou mais imagens pelo id. |
 | `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
-| `docker volume`. | Gerenciamento dos volumes no Docker. |
+| `docker volume`. | Lista os comandos de gerenciamento de volumes do Docker. |
+| `docker volume create`. | Cria um volume. |
+| `docker volume inspect`. | Exibe as informações detalhadas de um ou mais volumes. |
+| `docker volume prune`. | Remove todos os volumes locais que não estão sendo utilizados. |
 | `docker volume ls` | Lista todos os volumes no host. |
 | `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
 | `docker images`. | Lista as imagens disponíveis no host. |
@@ -108,9 +121,9 @@ Lista de comandos do Docker
 | `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
 | `docker run --name nome_do_container nome_da_imagem`. | Cria um container com o nome passado por parâmetro baseado na imagem informada. |
 | `docker exec nome_do_container comando`. | Executa um comando em um container que está rodando (está com o status *up*). **IMPORTANTE**: O terminal não ficará disponível para receber novos comandos. Para fazer isso é necessário executar a instrução passando `-it`, logo `docker exec -it nome_do_container comando`. |
-| ``. |  |
-| ``. |  |
-| ``. |  |
+| `docker run -v caminho_host:caminho_container`. | Além de criar um container, cria um *bind mount*, pegando os arquivos da pasta do host e copiando-os para dentro da pasta do container, caso o caminho especificado do lado do host não exista, ele será criado. Todas as vezes que o container for iniciado, ele realizará esse processo. Exemplo: `docker run -d --name nginx -p 8080:80 -v ~/docker/html/:/usr/share/nginx/hmt nginx`. |
+| `docker run --mount type=bind, source=caminho_host, target=caminho_container nome_da_imagem`. | Possui a mesma função do comando `docker run -v`, a diferença é que, além de ser mais explícito, não cria pasta (ou arquivo) caso ela não exista. Exemplo: `docker run --mount type=bind, source="$(pwd)"/html, target=/user/share/nginx/html nginx` |
+| `docker run --mount type=volume, source=nome_do_volume, target=caminho_container nome_da_imagem`. | Além de criar um container, cria um volume dentro do container no caminho especificado no parâmetro *target*. É possível acessar essa pasta criada a partir do comando `docker exec -it nome_da_imagem bash` e criar arquivos dentro da pasta com o comando `touch`, por exemplo. Se criarmos outro container a partir da mesma imagem, apenas mudando o nome do container, o arquivo criado dentro do volume estará disponível para os dois containers. Exemplo: `docker run --name nginx -d --mount type=volume, source=meuvolume, target=/app nginx`. |
 | ``. |  |
 
 
