@@ -78,23 +78,23 @@ Passos:
 Lista de comandos Docker
 | Comando                  | O que faz?                                           |
 |--------------------------|------------------------------------------------------|
-| `docker ps`              | Lista os containers que estão **rodando** na máquina e o seu status |
-| `docker ps -a`           | Lista os containers que estão na máquina e o seu status |
-| `docker run`             | Executa um comando em um novo container                 |
-| `docker run hello-world` | Tenta executar a imagem hello-world, senão encontrar a imagem irá executar o download da mesma para a máquina(irá baixar a imagem direto do docker hub por padrão) e, então, criar o container e depois finalizará o processo, matando a imagem |
-| `docker run -it nome_da_imagem:tag_da_imagem comando_a_ser_executado` | Executa o docker de modo interativo (`-i` que significa *interactive*, ou interativo), para manter o processo rodando, e de modo que seja possível executar comandos (`-t` que significa *tty*). O Docker então, irá tentar criar o container se baseando na imagem tageada (ou não) passada como parâmetro e depois executar o comando passado. Caso a imagem não exista, o Docker irá tentar baixá-la. Exemplo: `docker run -it ubuntu:latest bash` |
-| `docker run -it --rm nome_da_imagem comando_a_ser_executado` | A opção `--rm` informa para o Docker que quando o processo for finalizado, ou seja qunado a execução do container for parada, a imagem deverá ser removida automaticamente |
-| `docker start (container-id)` | Inicia o container informado por parâmetro |
-| `docker stop (container-id)` | Para o container informado desde que esteja rodando |
-| `` | |
-| `` | |
-| `` | |
-| `` | |
-| `` | |
-| `` | |
-| `` | |
-| `` | |
-| `` | |
+| `docker ps`. | Lista os containers que estão **rodando** na máquina e o seu status. |
+| `docker ps -a`. | Lista os containers que estão na máquina e o seu status |
+| `docker run`. | Executa um comando em um novo container                 |
+| `docker run hello-world`. | Tenta executar a imagem hello-world, senão encontrar a imagem irá executar o download da mesma para a máquina(irá baixar a imagem direto do docker hub por padrão) e, então, criar o container e depois finalizará o processo, matando a imagem. |
+| `docker run -it nome_da_imagem:tag_da_imagem comando_a_ser_executado`. | Executa o docker de modo interativo (`-i` que significa *interactive*, ou interativo), para manter o processo rodando, e de modo que seja possível executar comandos (`-t` que significa *tty*). O Docker então, irá tentar criar o container se baseando na imagem tageada (ou não) passada como parâmetro e depois executar o comando passado. Caso a imagem não exista, o Docker irá tentar baixá-la. Exemplo: `docker run -it ubuntu:latest bash`. |
+| `docker run -it --rm nome_da_imagem comando_a_ser_executado`. | A opção `--rm` informa para o Docker que quando o processo for finalizado, ou seja qunado a execução do container for parada, a imagem deverá ser removida automaticamente. |
+| `docker start (container-id)`. | Inicia o container informado por parâmetro. |
+| `docker stop (container-id)`. | Para o container informado desde que esteja rodando. |
+| `docker rm`. | Remove um ou mais containers pelo id. |
+| `docker rmi`. | Remove uma ou mais imagens pelo id. |
+| `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
+| `docker volume rm $(docker volume ls -q)`. |  |
+| `docker images`. | |
+| `docker images -a`. | |
+| `docker rmi $(docker images -q)`. | |
+| `docker stop $(docker ps -a -q)`. | |
+| `docker rm $(docker ps -a -q)`. | |
 | `` | |
 
 ## Referências
