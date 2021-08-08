@@ -89,14 +89,15 @@ Lista de comandos Docker
 | `docker rm`. | Remove um ou mais containers pelo id. |
 | `docker rmi`. | Remove uma ou mais imagens pelo id. |
 | `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
-| `docker volume rm $(docker volume ls -q)`. |  |
-| `docker images`. | |
-| `docker images -a`. | |
-| `docker rmi $(docker images -q)`. | |
-| `docker stop $(docker ps -a -q)`. | |
-| `docker rm $(docker ps -a -q)`. | |
+| `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
+| `docker images`. | Lista as imagens. |
+| `docker images -a`. | Lista todas as imagens. |
+| `docker rmi $(docker images -q)`. | Remove todas as imagens listadas. |
+| `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
+| `docker rm $(docker ps -a -q)`. | Remove todos os containers listados. |
 | `` | |
 
 ## Referências
 - Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
-- 
+- FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
+- TIBCO. How to Do a Clean Restart of a Docker Instance. https://docs.tibco.com/pub/mash-local/4.3.0/doc/html/docker/GUID-BD850566-5B79-4915-987E-430FC38DAAE4.html
