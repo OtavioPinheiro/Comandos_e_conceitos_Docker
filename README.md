@@ -129,6 +129,10 @@ Lista de comandos do Docker
 ## Dickerfile
 O Docker pode criar (ou construir) imagens a partir da leitura de instruções presentes no arquivo *Dockerfile*. *Dockerfile* é um documento (arquivo) de texto que contém todos os comandos que um usuário poderia chamar na linha de comando para montar uma imagem (Docker Docs). Usando o comando `docker build`, os usuários podem criar uma *build* automatizada que executa diversas instruções de linha de comando em sequência.
 
+Exemplos de Dockerfile:
+- [Dockerfile1]("./../Dockerfile"). Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminho_para_Dockerfile`. Exemplo: `docker build -t nome_do_usuário_dockerhub/ngnix-com-vim:latest .`
+
+
 
 ### Dicas
 1. Quando for executar algum comando dentro de um container, execute `apt-get update` antes, para baixar todos os arquivos disponíveis da imagem. Por padrão a imagem não vem com esses arquivos instalados, pois assim a imagem fica mais leve. Portanto antes de realizar, por exemplo, um `apt-get install`, realize um *update* antes.
