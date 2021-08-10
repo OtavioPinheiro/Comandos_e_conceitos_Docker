@@ -133,6 +133,7 @@ Exemplos de Dockerfile:
 - [Dockerfile1](./Dockerfile). Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminho_para_Dockerfile`. Exemplo: `docker build -t nome_do_usuário_dockerhub/ngnix-com-vim:latest .`
 
 ### Comandos
+- **FROM:** Deve ser informado o nome da imagem para que o Docker faça o download (pull) da mesma. Por padrão, o Docker baixará a imagem do Docker Hub.
 - **RUN:** Executa a linha de comando passada
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 
