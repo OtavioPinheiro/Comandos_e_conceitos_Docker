@@ -137,6 +137,7 @@ Exemplos de Dockerfile:
 - **RUN:** Executa a linha de comando passada
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
+- **USER:** Acessa um usuário dentro do container criado, caso ele exista.
 
 ### Dicas
 1. Quando for executar algum comando dentro de um container, execute `apt-get update` antes, para baixar todos os arquivos disponíveis da imagem. Por padrão a imagem não vem com esses arquivos instalados, pois assim a imagem fica mais leve. Portanto antes de realizar, por exemplo, um `apt-get install`, realize um *update* antes.
