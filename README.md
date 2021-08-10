@@ -132,7 +132,9 @@ O Docker pode criar (ou construir) imagens a partir da leitura de instruções p
 Exemplos de Dockerfile:
 - [Dockerfile1](./Dockerfile). Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminho_para_Dockerfile`. Exemplo: `docker build -t nome_do_usuário_dockerhub/ngnix-com-vim:latest .`
 
-
+### Comandos
+- **RUN:** Executa a linha de comando passada
+- **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 
 ### Dicas
 1. Quando for executar algum comando dentro de um container, execute `apt-get update` antes, para baixar todos os arquivos disponíveis da imagem. Por padrão a imagem não vem com esses arquivos instalados, pois assim a imagem fica mais leve. Portanto antes de realizar, por exemplo, um `apt-get install`, realize um *update* antes.
