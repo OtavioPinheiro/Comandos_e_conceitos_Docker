@@ -84,6 +84,8 @@ Passos:
 ### Mac
 
 
+**FONTE:** [Guia rápido do WSL2 + Docker.](https://github.com/codeedu/wsl2-docker-quickstart)
+
 ## Comandos
 Lista de comandos do Docker
 | Comando                  | O que faz?                                           |
@@ -126,7 +128,7 @@ Lista de comandos do Docker
 | `docker run --mount type=volume, source=nome_do_volume, target=caminho_container nome_da_imagem`. | Além de criar um container, cria um volume dentro do container no caminho especificado no parâmetro *target*. É possível acessar essa pasta criada a partir do comando `docker exec -it nome_da_imagem bash` e criar arquivos dentro da pasta com o comando `touch`, por exemplo. Se criarmos outro container a partir da mesma imagem, apenas mudando o nome do container, o arquivo criado dentro do volume estará disponível para os dois containers. Exemplo: `docker run --name nginx -d --mount type=volume, source=meuvolume, target=/app nginx`. |
 | `docker build`. | Constrói uma imagem a partir de um arquivo Dockerfile e de um contexto (conjunto de arquivos na localização, PATH ou URL, especificada). |
 
-## Dickerfile
+## Dockerfile
 O Docker pode criar (ou construir) imagens a partir da leitura de instruções presentes no arquivo *Dockerfile*. *Dockerfile* é um documento (arquivo) de texto que contém todos os comandos que um usuário poderia chamar na linha de comando para montar uma imagem (Docker Docs). Usando o comando `docker build`, os usuários podem criar uma *build* automatizada que executa diversas instruções de linha de comando em sequência.
 
 **Instruções para executar os exemplos de Dockerfile:**
@@ -135,19 +137,31 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
 **Exemplos de Dockerfile:**
 - [1.Dockerfile](./1.Dockerfile)
 - [2.Dockerfile](./2.Dockerfile)
+- [3.Dockerfile](./3.Dockerfile)
 
 ### Comandos
-- **FROM:** Especifica a imagem pai na qual será construída a imagem.
+- **FROM:** Especifica a imagem pai na qual será construída o container. A instrução `FROM` inicializa um novo estágio de *build* e define a imagem base para instruções subsequentes. Vale lembrar que um *Dockerfile* válido deve começar com a instrução `FROM` e que a imagem pode ser qualquer imagem válida. Ainda, 
+  - a instrução `ARG` é a única que pode preceder a instrução `FROM`,
+  - `FROM` pode aparecer múltiplas vezes em um *Dockerfile* para criar multiplas imagens ou usar uma fase da *build* como dependência para outras. Simplesmente anote o ID da última imagem antes de cada nova instrução `FROM`. Cada instrução `FROM` limpa qualquer fase criada por instruções anteriores.
+  - Opcionalmente um nome pode ser dado para um novo estágio de *build*, adicionando `AS name` à instrução `FROM`. O nome pode ser usado em instruções subsequentes, como `FROM` e `COPY --from=<name>`, para se referir à imagem construída nesse estágio.
+  - Os valores das `tag` ou `digest` são opcionais. Se você escolher omitir ambos, o construtor (*builder*) irá assumir a *tag* `latest` por padrão. O construtor irá retornar um erro caso não encontre o valor da *tag*, ou seja, caso a *tag* informada não exista.
+  Modelos:
+  `FROM [--plataforma=<plataforma>] <imagem> [AS <name>]`
+  `FROM [--plataforma=<plataforma>] <imagem>[:<tag>] [AS <name>]`
+  `FROM [--plataforma=<plataforma>] <imagem>[@<digest>] [AS <name>]`
 - **RUN:** Executa a linha de comando passada
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
+- **ENTRYPOINT:** 
+- **CMD:** 
 
+**FONTE:** [Docker Docs](https://docs.docker.com/engine/reference/builder/)
 ### Dicas
 1. Quando for executar algum comando dentro de um container, execute `apt-get update` antes, para baixar todos os arquivos disponíveis da imagem. Por padrão a imagem não vem com esses arquivos instalados, pois assim a imagem fica mais leve. Portanto antes de realizar, por exemplo, um `apt-get install`, realize um *update* antes.
 
 ## Referências
-- Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
-- FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
-- TIBCO. How to Do a Clean Restart of a Docker Instance. https://docs.tibco.com/pub/mash-local/4.3.0/doc/html/docker/GUID-BD850566-5B79-4915-987E-430FC38DAAE4.html
-- Docker Docs. Dockerfile reference. https://docs.docker.com/engine/reference/builder/
+1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
+2. FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
+3. TIBCO. How to Do a Clean Restart of a Docker Instance. https://docs.tibco.com/pub/mash-local/4.3.0/doc/html/docker/GUID-BD850566-5B79-4915-987E-430FC38DAAE4.html
+4. Docker Docs. Dockerfile reference. https://docs.docker.com/engine/reference/builder/
