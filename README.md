@@ -203,6 +203,7 @@ Essa instrução possui duas formas de ser utilizada, sendo elas:
    CMD echo "Isso é um teste." | wc -
    ```
   - **Forma exec (exec form)**. Nessa forma os comandos devem ser expressos em forma de *array* como em arquivos JSON, logo as aspas duplas devem ser usadas e não a simples. Ainda é necessário informar o caminho completo do executável caso queira o executável e qualquer parâmetro adicional deve ser individualmente expresso como *strings* no *array*. Modelo: `CMD ["executable", "param1", "param2"]`.
+
    **Exemplo:**
    ```sh
    FROM ubuntu
@@ -210,6 +211,22 @@ Essa instrução possui duas formas de ser utilizada, sendo elas:
    ```
 
 Só pode haver um `CMD` por *Dockerfile*, caso haja mais de um, apenas o último `CMD` será considerado.
+
+**Entendimento de como os comandos CMD e ENTRYPOINT interagem**
+Ambas as instruções `CMD` e `ENTRYPOINT` definem qual comando será executado quando o container rodar. Há algumas poucas regras que descrevem suas cooperações.
+1. Dockerfile deve especificar no mínimo um comando `CMD` ou `ENTRYPOINT`.
+2. `ENTRYPOINT` deve ser definido quando o container é usado como executável.
+3. `CMD` deve ser usado como uma maneira de definir argumentos padrões para o comando `ENTRYPOINT` ou para executar um comando *ad-hoc* no container.
+4. `CMD` será sobescrito quando o container for executado com argumentos alternativos.
+
+A tabela abaixo mostra qual comando é executado para combinações diferentes entre `ENTRYPOINT`/`CMD`
+
+|  | Sem ENTRYPOINT | ENTRYPOINT exec_entry p1_entry | ENTRYPOINT["exec_entry","p1_entry"] |
+|---|--------------|---------------------------------|--------------------------|
+| **Sem CMD** | erro, não é permitido | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry |
+| **CMD["exec_cmd","p1_cmd"]** | exec_cmd p1_cmd | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry exec_cmd p1_cmd |
+| **CMD["p1_cmd","p2_cmd"]** | p1_cmd p2_cmd | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry p1_cmd p2_cmd |
+| **CMD exec_cmd p1_cmd** | /bin/sh -c exec_cmd p1_cmd | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd |
 
 **FONTE:** [Docker Docs](https://docs.docker.com/engine/reference/builder/)
 ### Dicas
