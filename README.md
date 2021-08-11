@@ -157,14 +157,14 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
 - **ENTRYPOINT:** 
-- **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando o container for executado. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`. Essa instrução possui duas formas de ser utilizada, sendo elas:
-  - Forma shell (shell form).
-  ```
+- **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando a imagem for executada. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`. Essa instrução possui duas formas de ser utilizada, sendo elas:
+  - **Forma shell (shell form)**. Por padrão executará o comando informado com o shell `/bin/sh -c`.
+  ```sh
    FROM ubuntu
    CMD echo "Isso é um teste." | wc -
   ```
-  - Forma exec (exec form). Nessa forma os comandos devem ser expressos em forma de array como em arquivos JSON, logo as aspas duplas devem ser usadas e não a simples. Ainda é necessário informar o caminho completo do executável 
-  ```
+  - **Forma exec (exec form)**. Nessa forma os comandos devem ser expressos em forma de *array* como em arquivos JSON, logo as aspas duplas devem ser usadas e não a simples. Ainda é necessário informar o caminho completo do executável caso queira o executável e qualquer parâmetro adicional deve ser individualmente expresso como *strings* no *array*.
+  ```sh
    FROM ubuntu
    CMD ["/usr/bin/wc", "--help"]
   ```
