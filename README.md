@@ -152,12 +152,24 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
 
   A *flag* opcional `--platform` pode ser usada para especificar a plataforma da imagem em casos da instrução `FROM` referenciar uma imagem multi-plataforma. Por exemplo, `linux/amd64`, `linux/arm64` ou `windows/amd64`.
 
-- **RUN:** Executa o comando passado em uma camada acima da imagem atual e salva os resultados. A imagem resultante será usada na próxima etapa no *Dockerfile*.
+- **RUN:** Executa o comando informado.
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
 - **ENTRYPOINT:** 
-- **CMD:** 
+- **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando o container for executado. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`. Essa instrução possui duas formas de ser utilizada, sendo elas:
+  - Forma shell (shell form).
+  ```
+   FROM ubuntu
+   CMD echo "Isso é um teste." | wc -
+  ```
+  - Forma exec (exec form). Nessa forma os comandos devem ser expressos em forma de array como em arquivos JSON, logo as aspas duplas devem ser usadas e não a simples. Ainda é necessário informar o caminho completo do executável 
+  ```
+   FROM ubuntu
+   CMD ["/usr/bin/wc", "--help"]
+  ```
+
+Só pode haver um `CMD` por *Dockerfile*, caso haja mais de um, apenas o último `CMD` será considerado.
 
 **FONTE:** [Docker Docs](https://docs.docker.com/engine/reference/builder/)
 ### Dicas
