@@ -156,8 +156,15 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
-- **ENTRYPOINT:** 
-- **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando a imagem for executada. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`. Essa instrução possui duas formas de ser utilizada, sendo elas:
+- **ENTRYPOINT:** Esse comando permite configurar uma container que rodará como um executável.
+- **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando a imagem for executada. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`, por exemplo, suponha o seguinte Dockerfile:
+```dockerfile
+   FROM ubuntu:latest
+   CMD ["echo", "Hello World"]
+```
+para construir o container `docker build -t nome_usuario_dockerhub/nome_do_container`, para rodar o container passando parâmetros `docker run --rm nome_usuario_dockerhub/nome_do_container echo "oi"`, logo a saída será "oi" e não "Hello World".
+
+Essa instrução possui duas formas de ser utilizada, sendo elas:
   - **Forma shell (shell form)**. Por padrão executará o comando informado com o shell `/bin/sh -c`. Modelo: `CMD command param1 param2`.
   **Exemplo:**
   ```sh
