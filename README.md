@@ -156,27 +156,52 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
-- **ENTRYPOINT:** Esse comando permite configurar um container que rodará como um executável e receberá os parâmetros informados. É possível
+- **ENTRYPOINT:** Esse comando permite configurar um container que rodará como um executável e receberá os parâmetros informados. É possível sobrescrever o *entrypoint* informado no Dockerfile executando o `docker run` com a *flag* `--entrypoint`, `docker run --entrypoint`. Em um arquivo *Dockerfile*, apenas o último comando `ENTRYPOINT` será considerado. Esse comando possui duas formas:
+  - **Forma exec (exec form)**. Você pode usar a forma *exec* para configurar argumentos e comandos fixos e, então, usar o comando `CMD`, na forma *exec* também, para configurar parâmetros adicionais que são mais prováveis de serem mudados. Modelo: `ENTRYPOINT ["executable", "param1", "param2"]`.
+  
+  **Exemplos:**
+1. 
+   ```dockerfile
+   FROM ubuntu
+   ENTRYPOINT ["top", "-b"]
+   CMD ["-c"]
+   ```
+   Então,
+   ```docker
+   docker run -it --rm --name test top -H
+   ```
+2. 
+   ```dockerfile
+   FROM debian:stable
+   RUN apt-get update && apt-get install -y --force-yes apache2
+   EXPOSE 80 443
+   VOLUME ["/var/www", "/var/log/apache2", "/etc/apache2"]
+   ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+   ```
+
+   - **Forma shell (shell form)**. 
+
 - **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando a imagem for executada. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`, por exemplo, suponha o seguinte Dockerfile:
-```dockerfile
+   ```dockerfile
    FROM ubuntu:latest
    CMD ["echo", "Hello World"]
-```
+   ```
 para construir o container `docker build -t nome_usuario_dockerhub/nome_do_container`, para rodar o container passando parâmetros `docker run --rm nome_usuario_dockerhub/nome_do_container echo "oi"`, logo a saída será "oi" e não "Hello World".
 
 Essa instrução possui duas formas de ser utilizada, sendo elas:
   - **Forma shell (shell form)**. Por padrão executará o comando informado com o shell `/bin/sh -c`. Modelo: `CMD command param1 param2`.
+  
   **Exemplo:**
-  ```sh
+   ```sh
    FROM ubuntu
    CMD echo "Isso é um teste." | wc -
-  ```
+   ```
   - **Forma exec (exec form)**. Nessa forma os comandos devem ser expressos em forma de *array* como em arquivos JSON, logo as aspas duplas devem ser usadas e não a simples. Ainda é necessário informar o caminho completo do executável caso queira o executável e qualquer parâmetro adicional deve ser individualmente expresso como *strings* no *array*. Modelo: `CMD ["executable", "param1", "param2"]`.
-  **Exemplo:**
-  ```sh
+   **Exemplo:**
+   ```sh
    FROM ubuntu
    CMD ["/usr/bin/wc", "--help"]
-  ```
+   ```
 
 Só pode haver um `CMD` por *Dockerfile*, caso haja mais de um, apenas o último `CMD` será considerado.
 
