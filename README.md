@@ -179,7 +179,13 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
    ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
    ```
 
-   - **Forma shell (shell form)**. 
+   - **Forma shell (shell form)**. Esse comando permite especificar uma *string* pura que será executada em `/bin/sh -c`. Essa forma usará o processamento do shell para substiuir as variáveis de ambiente do shell e ignorará quaisquer argumentos de linha de comando vindos do `CMD` ou do `docker run`. Para garantir que o comando `docker stop` sinalizará qualquer executável `ENTRYPOINT` rodando corretamente, será necessário começar o comando com `exec`, em outras palavras, para garantir que o comando `docker stop` conseguirá parar o container corretamente, é necessário começar o comando `ENTRYPOINT` com `exec`. Modelo: `ENTRYPOINT exec command param1 param2`
+  
+  **Exemplos:**
+  ```dockerfile
+  FROM ubuntu
+  ENTRYPOINT exec top -b
+  ```
 
 - **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando a imagem for executada. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`, por exemplo, suponha o seguinte Dockerfile:
    ```dockerfile
