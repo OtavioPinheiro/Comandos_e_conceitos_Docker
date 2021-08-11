@@ -146,10 +146,13 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
   - Opcionalmente um nome pode ser dado para um novo estágio de *build*, adicionando `AS name` à instrução `FROM`. O nome pode ser usado em instruções subsequentes, como `FROM` e `COPY --from=<name>`, para se referir à imagem construída nesse estágio.
   - Os valores das `tag` ou `digest` são opcionais. Se você escolher omitir ambos, o construtor (*builder*) irá assumir a *tag* `latest` por padrão. O construtor irá retornar um erro caso não encontre o valor da *tag*, ou seja, caso a *tag* informada não exista.
   Modelos:
-  `FROM [--plataforma=<plataforma>] <imagem> [AS <name>]`
-  `FROM [--plataforma=<plataforma>] <imagem>[:<tag>] [AS <name>]`
-  `FROM [--plataforma=<plataforma>] <imagem>[@<digest>] [AS <name>]`
-- **RUN:** Executa a linha de comando passada
+  `FROM [--platform=<platform>] <image> [AS <name>]`
+  `FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]`
+  `FROM [--platform=<platform>] <image>[@<digest>] [AS <name>]`
+
+  A *flag* opcional `--platform` pode ser usada para especificar a plataforma da imagem em casos da instrução `FROM` referenciar uma imagem multi-plataforma. Por exemplo, `linux/amd64`, `linux/arm64` ou `windows/amd64`.
+
+- **RUN:** Executa o comando passado em uma camada acima da imagem atual e salva os resultados. A imagem resultante será usada na próxima etapa no *Dockerfile*.
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
