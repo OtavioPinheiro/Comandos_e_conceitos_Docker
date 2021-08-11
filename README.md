@@ -156,7 +156,7 @@ Modelo: `docker build -t nome_do_usuário_dockerhub/nome-da-imagem:latest caminh
 - **WORKDIR:** Criar uma pasta de trabalho dentro do container. Quando iniciar o container, esta pasta será criada e todo trabalho (código desenvolvido) será armazenado dentro desta pasta.
 - **COPY:** Copia uma pasta do host para dentro do container.
 - **USER:** Acessa um usuário dentro do container criado, caso ele exista.
-- **ENTRYPOINT:** Esse comando permite configurar uma container que rodará como um executável.
+- **ENTRYPOINT:** Esse comando permite configurar um container que rodará como um executável e receberá os parâmetros informados. É possível
 - **CMD:** Esse comando fornece padrões para a execução do container. Esses padrões podem incluir um executável ou omití-lo, em todo caso deve ser especificado a instrução `ENTRYPOINT`. Em palavras simples, a instrução `CMD` permite a execução de um comando quando a imagem for executada. É importante ressaltar que se o usuário especificar argumentos para o `docker run` então eles irão sobrescrever os argumentos especificados no `CMD`, por exemplo, suponha o seguinte Dockerfile:
 ```dockerfile
    FROM ubuntu:latest
