@@ -117,8 +117,8 @@ Lista de comandos do Docker
 | `docker rename`. | Renomeia um container existente. |
 | `docker restart`. | Reinicia um container que está rodando ou parado. |
 | `docker pause`. | Pausa um container ativo. |
-| `docker pull`. | Faz um pull (download) de uma imagem a partir de um servidor, por padrão o docker hub. |
-| `docker push`. | Faz um push (upload) de uma imagem a partir de uma servidor, por padrão o docker hub. |
+| `docker pull`. | Faz um pull (download) de uma imagem de um servidor, por padrão o docker hub. |
+| `docker push`. | Faz um push (upload) de uma imagem que está no seu computador para um servidor, por padrão o docker hub. |
 | `docker run -p porta_do_host:porta_do_container nome_da_imagem`. | Cria um container baseado na imagem passada e realiza um redirecionamento da porta do container para a porta do host. Exemplo: `docker run -p 8080:80 nginx`. |
 | `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
 | `docker run --name nome_do_container nome_da_imagem`. | Cria um container com o nome passado por parâmetro baseado na imagem informada. |
@@ -127,6 +127,8 @@ Lista de comandos do Docker
 | `docker run --mount type=bind, source=caminho_host, target=caminho_container nome_da_imagem`. | Possui a mesma função do comando `docker run -v`, a diferença é que, além de ser mais explícito, não cria pasta (ou arquivo) caso ela não exista. Exemplo: `docker run --mount type=bind, source="$(pwd)"/html, target=/user/share/nginx/html nginx` |
 | `docker run --mount type=volume, source=nome_do_volume, target=caminho_container nome_da_imagem`. | Além de criar um container, cria um volume dentro do container no caminho especificado no parâmetro *target*. É possível acessar essa pasta criada a partir do comando `docker exec -it nome_da_imagem bash` e criar arquivos dentro da pasta com o comando `touch`, por exemplo. Se criarmos outro container a partir da mesma imagem, apenas mudando o nome do container, o arquivo criado dentro do volume estará disponível para os dois containers. Exemplo: `docker run --name nginx -d --mount type=volume, source=meuvolume, target=/app nginx`. |
 | `docker build`. | Constrói uma imagem a partir de um arquivo Dockerfile e de um contexto (conjunto de arquivos na localização, PATH ou URL, especificada). |
+| `docker login` | Realiza o login, via terminal, no Docker Hub. Quando esse comando é executado, é necessário informar o usuário (*username*) e a senha (*password*). |
+| `docker logout` | Realiza logout, via terminal, do Docker Hub. |
 
 ## Dockerfile
 O Docker pode criar (ou construir) imagens a partir da leitura de instruções presentes no arquivo *Dockerfile*. *Dockerfile* é um documento (arquivo) de texto que contém todos os comandos que um usuário poderia chamar na linha de comando para montar uma imagem (Docker Docs). Usando o comando `docker build`, os usuários podem criar uma *build* automatizada que executa diversas instruções de linha de comando em sequência.
