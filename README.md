@@ -3,25 +3,33 @@
 Explicar e demonstrar os comandos e conceitos do Docker.
 
 ## Sumário
-1. [O que é Docker?](#o-que-é-docker)
-2. [Conhecimentos prévios](#conhecimentos-prévios)
+1. [Conhecimentos prévios](#conhecimentos-prévios)
+2. [O que é Docker?](#o-que-é-docker)
 3. [Coneitos](#conceitos)
 4. [Como se instala?](#como-se-instala)
 5. [Comandos](#comandos)
-
-## O que é Docker?
-Docker, no que se refere ao software de TI, é uma tecnologia de containerização para criação e uso de container Linux. Com o Docker é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro.
 
 # Conhecimentos prévios.
 Alguns termos necessários e interessantes para entender melhor a tecnologia Docker.
 
 ## O que são daemons?
-Daemons (pronúncia: daimôns), são processos de plano de fundo.
+Daemons (pronúncia: daimôns), em palavras simples, são processos de plano de fundo. Em um senso estritamente técnico, um processo de sistema do tipo Unix é um daemon quando seu processo pai termina e o daemon é atribuído ao processo *init* (processo inicial ou processo número 1) como seu processo pai e não possui terminal de controle. Porém um daemon pode ser qualquer processo de plano de fundo seja um filho do processo *init* ou não.
+
+Em um sistema do tipo Unix, o método comum para que um processo torna-se daemon é quando esse processo é iniciado por linha de comando ou por script de inicialização, como, por exemplo, script *init* ou script *SystemStarter*.
+
+FONTE E MAIS INFORMAÇÕES: [Wikipédia - Daemon (computação)](https://pt.wikipedia.org/wiki/Daemon_(computa%C3%A7%C3%A3o))
 
 ## O que são containers Linux?
 
+
+# O que é Docker?
+Docker, no que se refere ao software de TI, é uma tecnologia de containerização para criação e uso de container Linux. Com o Docker é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro.
+
+FONTE E MAIS INFORMAÇÕES:[Red Hat - O que é Docker?](https://www.redhat.com/pt-br/topics/containers/what-is-docker)
+
 ## Conceitos
 Alguns conceitos sobre Docker.
+
 ### O que são imagens?
 
 
@@ -249,3 +257,5 @@ A tabela abaixo mostra qual comando é executado para combinações diferentes e
 2. FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
 3. TIBCO. How to Do a Clean Restart of a Docker Instance. https://docs.tibco.com/pub/mash-local/4.3.0/doc/html/docker/GUID-BD850566-5B79-4915-987E-430FC38DAAE4.html
 4. Docker Docs. Dockerfile reference. https://docs.docker.com/engine/reference/builder/
+5. Red Hat. O que é Docker?. https://www.redhat.com/pt-br/topics/containers/what-is-docker
+6. Wikipédia. Daemons (computação). https://pt.wikipedia.org/wiki/Daemon_(computa%C3%A7%C3%A3o)
