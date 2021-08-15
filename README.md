@@ -31,10 +31,16 @@ FONTE E MAIS INFORMAÇÕES:[Red Hat - O que é Docker?](https://www.redhat.com/p
 Alguns conceitos sobre Docker.
 
 ### O que são imagens?
+Uma imagem, nesse contexto, é um arquivo que contém outros arquivos e metadados. Os arquivos da imagem estarão disponíveis para serem usados na construção de containers e os metadados serão usados para estabelecer um relacionamento entre as imagens.
 
+FONTE: Docker in Action
 
 ### O que são containers?
+Um container (ou contêiner) é uma unidade padrão de software que empacota o código e todas as suas dependências para que o aplicativo seja executado de forma rápida e confiável de um ambiente de computação para outro. Em outras palavras, os containers isolam o software de seu ambiente e garantem que ele funcione uniformemente.
 
+Um container Docker, construído a partir de uma imagem Docker, é um pacote de software leve, autonômo e executável que inclui tudo o que é necessário para executar um aplicativo: código, tempo de execução, ferramentas do sistema, bibliotecas do sistema e configurações. As imagens se tornam containers em tempo de execução e, no caso de containers Docker, as imagens se tornam containers quando são executadas no Docker Engine.
+
+FONTE E MAIS INFORMAÇÕES: [Use containers to Build, Share and Run your applications](https://www.docker.com/resources/what-container)
 
 ### O que são volumes?
 
@@ -259,3 +265,5 @@ A tabela abaixo mostra qual comando é executado para combinações diferentes e
 4. Docker Docs. Dockerfile reference. https://docs.docker.com/engine/reference/builder/
 5. Red Hat. O que é Docker?. https://www.redhat.com/pt-br/topics/containers/what-is-docker
 6. Wikipédia. Daemons (computação). https://pt.wikipedia.org/wiki/Daemon_(computa%C3%A7%C3%A3o)
+7. Jeff Nickoloff. Docker in Action.
+8. Docker. Use containers to Build, Share and Run your applications. https://www.docker.com/resources/what-container
