@@ -4,12 +4,21 @@ Explicar e demonstrar os comandos e conceitos do Docker.
 
 ## Sumário
 1. [O que é Docker?](#o-que-é-docker)
-2. [Coneitos](#conceitos)
-3. [Como se instala?](#como-se-instala)
-4. [Comandos](#comandos)
+2. [Conhecimentos prévios](#conhecimentos-prévios)
+3. [Coneitos](#conceitos)
+4. [Como se instala?](#como-se-instala)
+5. [Comandos](#comandos)
 
 ## O que é Docker?
+Docker, no que se refere ao software de TI, é uma tecnologia de containerização para criação e uso de container Linux. Com o Docker é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro.
 
+# Conhecimentos prévios.
+Alguns termos necessários e interessantes para entender melhor a tecnologia Docker.
+
+## O que são daemons?
+Daemons (pronúncia: daimôns), são processos de plano de fundo.
+
+## O que são containers Linux?
 
 ## Conceitos
 Alguns conceitos sobre Docker.
