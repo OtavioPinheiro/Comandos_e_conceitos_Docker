@@ -262,7 +262,7 @@ A tabela abaixo mostra qual comando é executado para combinações diferentes e
 No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 - `bridge`: É o driver de rede padrão, logo é sempre usado quando não se especifica o driver. Dentre todos os tipos de drivers de rede, o tipo `bridge` (ponte) é o mais usado. Indica-se utilizá-lo quando os aplicativos executados dentro dos containers precisam se comunicar entre eles.
 - `host`: Assim como o driver de rede do tipo `bridge`, o tipo `host` também tem o objetivo de conectar os aplicativos executados dentro dos containers, porém realiza essa tarefa por meio da rede do *host* dos containers, ou seja, o computador local conseguirá acessar as portas dos containers que estão rodando sem precisar realizar o comando `docker run --expose <port>`, pois os constainers estarão na mesma rede que o computador local.
-- `overlay`: 
+- `overlay`: É um driver de rede de sobreposição e é pouco utilizado. Normalmente utiliza-se esse tipo de rede quando há vários Dockers instalados em diversas máquinas e todos eles (contaienrs criados em cada Docker) precisam se comunicar, ou seja, é necessário estabelecer uma comunicação com containers que estão sendo executados em diferentes hosts. Também há um uso comum desse tipo de rede no serviço do Docker Swarm para que os containers se comuniquem. **OBS.:**Docker Swarm é uma ferramenta nativa do Docker que permite a orquestração, ou seja, permite que os containers distribuídos em diversos hosts sejam executados em um cluster e, neste cluster, é possível controlar a quantidade de containers, registro, deploy e update de serviços.
 - `macvlan`: 
 - `none`: 
 - Plugins de rede:
