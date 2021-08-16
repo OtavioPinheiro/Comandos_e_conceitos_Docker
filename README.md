@@ -258,6 +258,15 @@ A tabela abaixo mostra qual comando é executado para combinações diferentes e
 ### Dicas
 1. Quando for executar algum comando dentro de um container, execute `apt-get update` antes, para baixar todos os arquivos disponíveis da imagem. Por padrão a imagem não vem com esses arquivos instalados, pois assim a imagem fica mais leve. Portanto antes de realizar, por exemplo, um `apt-get install`, realize um *update* antes.
 
+# Network (rede) Docker
+No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
+- `bridge`: É o driver de rede padrão, logo é sempre usado quando não se especifica o driver. Dentre todos os tipos de drivers de rede, o tipo `bridge` (ponte) é o mais usado. Indica-se utilizá-lo quando os aplicativos executados dentro dos containers precisam se comunicar entre eles.
+- `host`: 
+- `overlay`: 
+- `macvlan`: 
+- `none`: 
+- Plugins de rede:
+
 ## Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
 2. FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
