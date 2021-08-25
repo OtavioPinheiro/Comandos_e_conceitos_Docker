@@ -113,45 +113,55 @@ Passos:
 Lista de comandos do Docker
 | Comando                  | O que faz?                                           |
 |--------------------------|------------------------------------------------------|
-| `docker ps`. | Lista os containers que estão **rodando** na máquina e o seu status. |
+| `docker build`. | Constrói uma imagem a partir de um arquivo Dockerfile e de um contexto (conjunto de arquivos na localização, PATH ou URL, especificada). |
+| `docker exec nome_do_container comando`. | Executa um comando em um container que está rodando (está com o status *up*). **IMPORTANTE**: O terminal não ficará disponível para receber novos comandos. Para fazer isso é necessário executar a instrução passando `-it`, logo `docker exec -it nome_do_container comando`. |
+| `docker images -a`. | Lista todas as imagens disponíveis no host. |
+| `docker images`. | Lista as imagens disponíveis no host. |
+| `docker login`. | Realiza o login, via terminal, no Docker Hub. Quando esse comando é executado, é necessário informar o usuário (*username*) e a senha (*password*). |
+| `docker logout`. | Realiza logout, via terminal, do Docker Hub. |
+| `docker network`. | Esse comando permite o gerenciamento de redes. Ao executar esse comando é exibido uma lista de subcomandos que permitem conectar(`connect`), criar(`create`), desconectar(`disconnect`), inspecionar(`inspect`), listar(`ls`), remover todas as redes que não estão sendo usadas(`prune`), remover uma ou mais redes(`rm`). |
+| `docker network COMMAND --help`. | Usado para obter mais informações sobre o comando especificado. |
+| `docker network connect minharede`. | Conecta um container à rede especificada. |
+| `docker network create minharede`. | Cria uma rede com o nome especificado. |
+| `docker network disconnect minharede`. | Desconecta uma container da rede especificada. |
+| `docker network inspect`. | Exibi informações detalhadas de uma ou mais redes. |
+| `docker network ls`. | Lista as redes do Docker. |
+| `docker network prune`. | Remove todas as redes que não estão sendo usadas. |
+| `docker network rm`. | Remove uma ou mais redes. |
+| `docker pause`. | Pausa um container ativo. |
 | `docker ps -a`. | Lista os containers que estão na máquina e o seu status |
-| `docker run`. | Executa um comando em um novo container                 |
+| `docker ps`. | Lista os containers que estão **rodando** na máquina e o seu status. |
+| `docker pull`. | Faz um pull (download) de uma imagem de um servidor, por padrão o docker hub. |
+| `docker push`. | Faz um push (upload) de uma imagem que está no seu computador para um servidor, por padrão o docker hub. |
+| `docker rename`. | Renomeia um container existente. |
+| `docker restart`. | Reinicia um container que está rodando ou parado. |
+| `docker rm $(docker ps -a -q)`. | Remove todos os containers listados. |
+| `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
+| `docker rm`. | Remove um ou mais containers pelo id. |
+| `docker rmi $(docker images -q)`. | Remove todas as imagens listadas. |
+| `docker rmi`. | Remove uma ou mais imagens pelo id. |
+| `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
 | `docker run hello-world`. | Tenta executar a imagem hello-world, senão encontrar a imagem irá executar o download da mesma para a máquina(irá baixar a imagem direto do docker hub por padrão) e, então, criar o container e depois finalizará o processo, matando a imagem. |
 | `docker run -it nome_da_imagem:tag_da_imagem comando_a_ser_executado`. | Executa o docker de modo interativo (`-i` que significa *interactive*, ou interativo), para manter o processo rodando, e de modo que seja possível executar comandos (`-t` que significa *tty*). O Docker então, irá tentar criar o container se baseando na imagem tageada (ou não) passada como parâmetro e depois executar o comando passado. Caso a imagem não exista, o Docker irá tentar baixá-la. Exemplo: `docker run -it ubuntu:latest bash`. |
 | `docker run -it --rm nome_da_imagem comando_a_ser_executado`. | A opção `--rm` informa para o Docker que quando o processo for finalizado, ou seja qunado a execução do container for parada, a imagem deverá ser removida automaticamente. |
-| `docker start (container-id)`. | Inicia o container informado por parâmetro. |
-| `docker stop (container-id)`. | Para o container informado desde que esteja rodando. |
-| `docker rm`. | Remove um ou mais containers pelo id. |
-| `docker rmi`. | Remove uma ou mais imagens pelo id. |
-| `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
-| `docker volume`. | Lista os comandos de gerenciamento de volumes do Docker. |
-| `docker volume create`. | Cria um volume. |
-| `docker volume inspect`. | Exibe as informações detalhadas de um ou mais volumes. |
-| `docker volume prune`. | Remove todos os volumes locais que não estão sendo utilizados. |
-| `docker volume ls` | Lista todos os volumes no host. |
-| `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
-| `docker images`. | Lista as imagens disponíveis no host. |
-| `docker images -a`. | Lista todas as imagens disponíveis no host. |
-| `docker rmi $(docker images -q)`. | Remove todas as imagens listadas. |
-| `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
-| `docker rm $(docker ps -a -q)`. | Remove todos os containers listados. |
-| `docker stats`. | Exibe informações do uso de CPU, memória e rede. |
-| `docker top`. | Exibe os processos rodando em um container. |
-| `docker rename`. | Renomeia um container existente. |
-| `docker restart`. | Reinicia um container que está rodando ou parado. |
-| `docker pause`. | Pausa um container ativo. |
-| `docker pull`. | Faz um pull (download) de uma imagem de um servidor, por padrão o docker hub. |
-| `docker push`. | Faz um push (upload) de uma imagem que está no seu computador para um servidor, por padrão o docker hub. |
-| `docker run -p porta_do_host:porta_do_container nome_da_imagem`. | Cria um container baseado na imagem passada e realiza um redirecionamento da porta do container para a porta do host. Exemplo: `docker run -p 8080:80 nginx`. |
-| `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
-| `docker run --name nome_do_container nome_da_imagem`. | Cria um container com o nome passado por parâmetro baseado na imagem informada. |
-| `docker exec nome_do_container comando`. | Executa um comando em um container que está rodando (está com o status *up*). **IMPORTANTE**: O terminal não ficará disponível para receber novos comandos. Para fazer isso é necessário executar a instrução passando `-it`, logo `docker exec -it nome_do_container comando`. |
-| `docker run -v caminho_host:caminho_container`. | Além de criar um container, cria um *bind mount*, pegando os arquivos da pasta do host e copiando-os para dentro da pasta do container, caso o caminho especificado do lado do host não exista, ele será criado. Todas as vezes que o container for iniciado, ele realizará esse processo. Exemplo: `docker run -d --name nginx -p 8080:80 -v ~/docker/html/:/usr/share/nginx/hmt nginx`. |
 | `docker run --mount type=bind, source=caminho_host, target=caminho_container nome_da_imagem`. | Possui a mesma função do comando `docker run -v`, a diferença é que, além de ser mais explícito, não cria pasta (ou arquivo) caso ela não exista. Exemplo: `docker run --mount type=bind, source="$(pwd)"/html, target=/user/share/nginx/html nginx` |
 | `docker run --mount type=volume, source=nome_do_volume, target=caminho_container nome_da_imagem`. | Além de criar um container, cria um volume dentro do container no caminho especificado no parâmetro *target*. É possível acessar essa pasta criada a partir do comando `docker exec -it nome_da_imagem bash` e criar arquivos dentro da pasta com o comando `touch`, por exemplo. Se criarmos outro container a partir da mesma imagem, apenas mudando o nome do container, o arquivo criado dentro do volume estará disponível para os dois containers. Exemplo: `docker run --name nginx -d --mount type=volume, source=meuvolume, target=/app nginx`. |
-| `docker build`. | Constrói uma imagem a partir de um arquivo Dockerfile e de um contexto (conjunto de arquivos na localização, PATH ou URL, especificada). |
-| `docker login` | Realiza o login, via terminal, no Docker Hub. Quando esse comando é executado, é necessário informar o usuário (*username*) e a senha (*password*). |
-| `docker logout` | Realiza logout, via terminal, do Docker Hub. |
+| `docker run --name nome_do_container nome_da_imagem`. | Cria um container com o nome passado por parâmetro baseado na imagem informada. |
+| `docker run -p porta_do_host:porta_do_container nome_da_imagem`. | Cria um container baseado na imagem passada e realiza um redirecionamento da porta do container para a porta do host. Exemplo: `docker run -p 8080:80 nginx`. |
+| `docker run -v caminho_host:caminho_container`. | Além de criar um container, cria um *bind mount*, pegando os arquivos da pasta do host e copiando-os para dentro da pasta do container, caso o caminho especificado do lado do host não exista, ele será criado. Todas as vezes que o container for iniciado, ele realizará esse processo. Exemplo: `docker run -d --name nginx -p 8080:80 -v ~/docker/html/:/usr/share/nginx/hmt nginx`. |
+| `docker run`. | Executa um comando em um novo container                 |
+| `docker start (container-id)`. | Inicia o container informado por parâmetro. |
+| `docker stats`. | Exibe informações do uso de CPU, memória e rede. |
+| `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
+| `docker stop (container-id)`. | Para o container informado desde que esteja rodando. |
+| `docker top`. | Exibe os processos rodando em um container. |
+| `docker volume create`. | Cria um volume. |
+| `docker volume inspect`. | Exibe as informações detalhadas de um ou mais volumes. |
+| `docker volume ls`. | Lista todos os volumes no host. |
+| `docker volume prune`. | Remove todos os volumes locais que não estão sendo utilizados. |
+| `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
+| `docker volume`. | Lista os comandos de gerenciamento de volumes do Docker. |
+
 
 ## Dockerfile
 O Docker pode criar (ou construir) imagens a partir da leitura de instruções presentes no arquivo *Dockerfile*. *Dockerfile* é um documento (arquivo) de texto que contém todos os comandos que um usuário poderia chamar na linha de comando para montar uma imagem (Docker Docs). Usando o comando `docker build`, os usuários podem criar uma *build* automatizada que executa diversas instruções de linha de comando em sequência.
