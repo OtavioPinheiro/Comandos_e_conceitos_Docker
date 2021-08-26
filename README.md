@@ -141,6 +141,7 @@ Lista de comandos do Docker
 | `docker rm`. | Remove um ou mais containers pelo id. |
 | `docker rmi $(docker images -q)`. | Remove todas as imagens listadas. |
 | `docker rmi`. | Remove uma ou mais imagens pelo id. |
+| `docker run`. | Executa um comando em um novo container |
 | `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
 | `docker run hello-world`. | Tenta executar a imagem hello-world, senão encontrar a imagem irá executar o download da mesma para a máquina(irá baixar a imagem direto do docker hub por padrão) e, então, criar o container e depois finalizará o processo, matando a imagem. |
 | `docker run -it nome_da_imagem:tag_da_imagem comando_a_ser_executado`. | Executa o docker de modo interativo (`-i` que significa *interactive*, ou interativo), para manter o processo rodando, e de modo que seja possível executar comandos (`-t` que significa *tty*). O Docker então, irá tentar criar o container se baseando na imagem tageada (ou não) passada como parâmetro e depois executar o comando passado. Caso a imagem não exista, o Docker irá tentar baixá-la. Exemplo: `docker run -it ubuntu:latest bash`. |
@@ -150,7 +151,7 @@ Lista de comandos do Docker
 | `docker run --name nome_do_container nome_da_imagem`. | Cria um container com o nome passado por parâmetro baseado na imagem informada. |
 | `docker run -p porta_do_host:porta_do_container nome_da_imagem`. | Cria um container baseado na imagem passada e realiza um redirecionamento da porta do container para a porta do host. Exemplo: `docker run -p 8080:80 nginx`. |
 | `docker run -v caminho_host:caminho_container`. | Além de criar um container, cria um *bind mount*, pegando os arquivos da pasta do host e copiando-os para dentro da pasta do container, caso o caminho especificado do lado do host não exista, ele será criado. Todas as vezes que o container for iniciado, ele realizará esse processo. Exemplo: `docker run -d --name nginx -p 8080:80 -v ~/docker/html/:/usr/share/nginx/hmt nginx`. |
-| `docker run`. | Executa um comando em um novo container                 |
+| `docker run --rm`. | Por padrão os arquivos de sistema dos containers são persistidos mesmo depois do container ter sido parado, esse comportamento faz com que o processo de debugging torne-se mais fácil, porque é possível inspecionar o estado final, e todos os dados são retidos por padrão. Porém, se você estiver executando um processo primário de curto duração, esses arquivos de sistema dos containers podem se acumular. Caso deseja que o Docker remova automaticamente esses arquivos de sistema e deixe o container limpo quando o mesmo for parado(sua execução for terminada), basta adicionar a *flag* `--rm`. Vale lembrar que se a *flag* `--rm` for usada, o Docker também removerá os volumes anônimos associados com o container quando o container for removido. Sendo similar ao comando `docker rm -v my-container`. Apenas os volumes definidos sem nome serão removidos. [Referência e mais informações](https://docs.docker.com/engine/reference/run/#clean-up---rm) |
 | `docker start (container-id)`. | Inicia o container informado por parâmetro. |
 | `docker stats`. | Exibe informações do uso de CPU, memória e rede. |
 | `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
@@ -280,7 +281,8 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 
 [Referências](https://docs.docker.com/network/)
 
-# Conectando containers
+# Exemplo. Conectando containers
+## Rede do tipo brigde
 1. Usando a rede padrão
 - Criando dois containers:
   - `docker run -d -it --name ubuntu1 bash`
@@ -301,6 +303,10 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
   - `docker network connect minharede ubuntu3`. Connectando o container ubuntu3 na network minharede.
   - `docker exec -it ubuntu3 bash`. Executando o bash do container ubuntu3.
   - `ping ubuntu2`. Verificando que ubuntu2 e ubuntu3 agora estão conectados na mesma rede.
+
+## Rede do tipo host
+- Criando a rede do tipo host:
+  - `docker run --rm -d --name nginx --network host nginx`
 
 # Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
