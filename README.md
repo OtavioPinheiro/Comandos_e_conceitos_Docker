@@ -8,6 +8,7 @@ Explicar e demonstrar os comandos e conceitos do Docker.
 3. [Coneitos](#conceitos)
 4. [Como se instala?](#como-se-instala)
 5. [Comandos](#comandos)
+6. [Referências](#referências)
 
 # Conhecimentos prévios.
 Alguns termos necessários e interessantes para entender melhor a tecnologia Docker.
@@ -121,10 +122,10 @@ Lista de comandos do Docker
 | `docker logout`. | Realiza logout, via terminal, do Docker Hub. |
 | `docker network`. | Esse comando permite o gerenciamento de redes. Ao executar esse comando é exibido uma lista de subcomandos que permitem conectar(`connect`), criar(`create`), desconectar(`disconnect`), inspecionar(`inspect`), listar(`ls`), remover todas as redes que não estão sendo usadas(`prune`), remover uma ou mais redes(`rm`). |
 | `docker network COMMAND --help`. | Usado para obter mais informações sobre o comando especificado. |
-| `docker network connect minharede`. | Conecta um container à rede especificada. |
-| `docker network create minharede`. | Cria uma rede com o nome especificado. |
-| `docker network disconnect minharede`. | Desconecta uma container da rede especificada. |
-| `docker network inspect`. | Exibi informações detalhadas de uma ou mais redes. |
+| `docker network connect <nomedarede>`. | Conecta um container à rede especificada. |
+| `docker network create <nomedarede>`. | Cria uma rede com o nome especificado. |
+| `docker network disconnect <nomedarede>`. | Desconecta uma container da rede especificada. |
+| `docker network inspect <nomedarede>`. | Exibi informações detalhadas de uma ou mais redes. |
 | `docker network ls`. | Lista as redes do Docker. |
 | `docker network prune`. | Remove todas as redes que não estão sendo usadas. |
 | `docker network rm`. | Remove uma ou mais redes. |
@@ -279,7 +280,29 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 
 [Referências](https://docs.docker.com/network/)
 
-## Referências
+# Conectando containers
+1. Usando a rede padrão
+- Criando dois containers:
+  - `docker run -d -it --name ubuntu1 bash`
+  - `docker run -d -it --name ubuntu2 bash`
+- Acessando um dos containers:
+  - `docker attach ubuntu1`
+  - `ip addr show` pegar o ip do outro container.
+  - `ping <ip-ubuntu2>`. Verificando que os containers estão se comunicando.
+
+2. Especificado o tipo da rede como `bridge`
+- Criando uma rede do tipo bridge:
+  - `docker network create --driver bridge minharede`
+  - `docker run -dit --name ubuntu1 --network minharede bash`
+  - `docker run -dit --name ubuntu2 --network minharede bash`
+  - `docker exec -it ubuntu1 bash`. Acessando o container de nome ubuntu1
+  - `ping ubuntu2`. Container ubuntu1 se comunicando com o ubuntu2.
+  - `docker run -dit --name ubuntu3 bash`. Criando mais um container, porém fora da network criada.
+  - `docker network connect minharede ubuntu3`. Connectando o container ubuntu3 na network minharede.
+  - `docker exec -it ubuntu3 bash`. Executando o bash do container ubuntu3.
+  - `ping ubuntu2`. Verificando que ubuntu2 e ubuntu3 agora estão conectados na mesma rede.
+
+# Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
 2. FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
 3. TIBCO. How to Do a Clean Restart of a Docker Instance. https://docs.tibco.com/pub/mash-local/4.3.0/doc/html/docker/GUID-BD850566-5B79-4915-987E-430FC38DAAE4.html
