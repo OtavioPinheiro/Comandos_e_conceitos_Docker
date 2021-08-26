@@ -307,6 +307,9 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 ## Rede do tipo host
 - Criando a rede do tipo host:
   - `docker run --rm -d --name nginx --network host nginx`
+  - Executando `curl http://localhost` é possível visualizar a página do nginx.
+
+**IMPORTANTE:** Se estiver trabalhando com Docker no Mac esses comandos não irão funcionar! Pois o Docker foi desenvolvido para funcionar no Linux e, portanto, não irá conseguir estabelecer conexão com o host, apresentando a mensagem `curl: (7) Failed to connect to localhost port 80: connection refused`.
 
 # Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
