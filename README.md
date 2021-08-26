@@ -311,6 +311,9 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 
 **IMPORTANTE:** Se estiver trabalhando com Docker no Mac esses comandos não irão funcionar! Pois o Docker foi desenvolvido para funcionar no Linux e, portanto, não irá conseguir estabelecer conexão com o host, apresentando a mensagem `curl: (7) Failed to connect to localhost port 80: connection refused`.
 
+### Dicas
+As vezes é necessário fazer com que o container consiga acessar uma dada informação do host. Então, suponha que na máquina(host) tenha instalado o php e tenha subido o servidor com o comando `php -S 0.0.0.0:8000`. É possível acessar as informações expostas pelo php na porta 8000 excutando o comando `curl http://host.docker.internal:8000` de dentro do container.
+
 # Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
 2. FreeCodeCamp. How to Remove Images and Containers in Docker. https://www.freecodecamp.org/news/how-to-remove-images-in-docker/
