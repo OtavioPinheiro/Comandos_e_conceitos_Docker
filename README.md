@@ -318,9 +318,19 @@ As vezes é necessário fazer com que o container consiga acessar uma dada infor
 ## Docker + Laravel
 - [Dockerfile](./laravel/Dockerfile)
 - Terminal: acessar a pasta laravel
+  `docker build -t DockerHubID/laravel .`
   `docker run --rm -d --name laravel -p 8000:8000 DockerHubID/laravel`
   ou
   `docker run --rm -d --name laravel -p 8001:8001 DockerHubID/laravel --host=0.0.0.0 --port=8001`
+
+## Docker + NODE
+- [Dockerfile](./node/Dockerfile)
+- Terminal: acessar a pasta node
+  `docker build -t DockerHubID/hello-express .`
+  `docker run -p 3000:3000 DockerHubID/hello-express:latest`
+
+**IMPORTANTE:** No powersheel do Windows não se utiliza `$(pwd)`, mas sim `${pwd}`.[Referência](https://stackoverflow.com/questions/45682010/docker-invalid-reference-format)
+
 
 # Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
