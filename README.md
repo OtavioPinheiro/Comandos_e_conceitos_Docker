@@ -9,7 +9,9 @@ Explicar e demonstrar os comandos e conceitos do Docker.
 4. [Como se instala?](#como-se-instala)
 5. [Comandos](#comandos)
 6. [Dockerfile](#dockerfile)
-7. [Referências](#referências)
+7. [Network Docker](#network-rede-docker)
+8. [Exercícios](#exercícios)
+9. [Referências](#referências)
 
 # Conhecimentos prévios.
 Alguns termos necessários e interessantes para entender melhor a tecnologia Docker.
