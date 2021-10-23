@@ -317,6 +317,9 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 ### Dicas
 As vezes é necessário fazer com que o container consiga acessar uma dada informação do host. Então, suponha que na máquina(host) tenha instalado o php e tenha subido o servidor com o comando `php -S 0.0.0.0:8000`. É possível acessar as informações expostas pelo php na porta 8000 excutando o comando `curl http://host.docker.internal:8000` de dentro do container.
 
+# Otimização utilizando Multistage Building
+
+
 # Exercícios
 ## Docker + Laravel
 - [Dockerfile](./laravel/Dockerfile)
