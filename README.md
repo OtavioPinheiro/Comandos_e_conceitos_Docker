@@ -327,6 +327,9 @@ Gerando uma imagem Docker para produção, temos dois pontos importantes para no
 1. Normalmente utiliza-se um servidor de proxy reverso para receber as requisições e chamar o container específico para aquela requisição. **Exemplo:** Podemos utilizar o Ngnix como servidor de proxy reverso que receberá as requisições e chamará um container PHP (rodando em *fast CGI* para conexão com o Ngnix). O container PHP, por sua vez, será executado e retornará uma resposta (*response*) para o Ngnix. O Ngnix então, irá retornar essa resposta para o usuário final.
 2. Para reduzir o tamanho da imagem, pode-se utilizar o alpine linux. E, por ser um sistema bem enxuto, costuma-se realizar o *multistage building*, aonde o processo de *building* (construção) da imagem é feita em duas ou mais etapas.
 
+**Exemplo:**
+- [Dockerfile produção](laravel/Dockerfile.prod). Para executar: `docker build -t <usuário>/laravel:prod laravel -f laravel/Dockerfile.prod`
+
 # Exercícios
 ## Docker + Laravel
 - [Dockerfile](./laravel/Dockerfile)
