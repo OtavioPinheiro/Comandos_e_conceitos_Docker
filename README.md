@@ -318,7 +318,8 @@ No subsistema Docker exitem, baiscamente, 5 tipos de rede, são elas:
 As vezes é necessário fazer com que o container consiga acessar uma dada informação do host. Então, suponha que na máquina(host) tenha instalado o php e tenha subido o servidor com o comando `php -S 0.0.0.0:8000`. É possível acessar as informações expostas pelo php na porta 8000 excutando o comando `curl http://host.docker.internal:8000` de dentro do container.
 
 # Otimização utilizando Multistage Building
-
+## Por que é importante ter uma imagem enxuta?
+Uma imagem enxuta, para ambientes de produção, é melhor porque é mais rápido para subir a imagem (realizar o *deploy* ou fazer o *upload* da imagem) e mais rápido para baixar a imagem. Ainda, quanto menor a imagem, menor são as changes da imagem possuir alguma vulnerabilidade de segurança.
 
 # Exercícios
 ## Docker + Laravel
