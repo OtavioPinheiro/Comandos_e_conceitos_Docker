@@ -10,8 +10,9 @@ Explicar e demonstrar os comandos e conceitos do Docker.
 5. [Comandos](#comandos)
 6. [Dockerfile](#dockerfile)
 7. [Network Docker](#network-rede-docker)
-8. [Exercícios](#exercícios)
-9. [Referências](#referências)
+8. [Otimização utilizando multistage building](#otimização-utilizando-multistage-building)
+9. [Exercícios](#exercícios)
+10. [Referências](#referências)
 
 # Conhecimentos prévios.
 Alguns termos necessários e interessantes para entender melhor a tecnologia Docker.
