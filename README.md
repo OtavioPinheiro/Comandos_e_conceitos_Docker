@@ -322,6 +322,11 @@ As vezes é necessário fazer com que o container consiga acessar uma dada infor
 ## Por que é importante ter uma imagem enxuta?
 Uma imagem enxuta, para ambientes de produção, é melhor porque é mais rápido para subir a imagem (realizar o *deploy* ou fazer o *upload* da imagem) e mais rápido para baixar a imagem. Ainda, quanto menor a imagem, menor são as changes da imagem possuir alguma vulnerabilidade de segurança.
 
+## Imagem Docker para produção
+Gerando uma imagem Docker para produção, temos dois pontos importantes para nos atentarmos.
+1. Normalmente utiliza-se um servidor de proxy reverso para receber as requisições e chamar o container específico para aquela requisição. **Exemplo:** Podemos utilizar o Ngnix como servidor de proxy reverso que receberá as requisições e chamará um container PHP (rodando em *fast CGI* para conexão com o Ngnix). O container PHP, por sua vez, será executado e retornará uma resposta (*response*) para o Ngnix. O Ngnix então, irá retornar essa resposta para o usuário final.
+2. Para reduzir o tamanho da imagem, pode-se utilizar o alpine linux. E, por ser um sistema bem enxuto, costuma-se realizar o *multistage building*, aonde o processo de *building* (construção) da imagem é feita em duas ou mais etapas.
+
 # Exercícios
 ## Docker + Laravel
 - [Dockerfile](./laravel/Dockerfile)
