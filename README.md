@@ -26,9 +26,14 @@ Em um sistema do tipo Unix, o método comum para que um processo torna-se daemon
 FONTE E MAIS INFORMAÇÕES: [Wikipédia - Daemon (computação)](https://pt.wikipedia.org/wiki/Daemon_(computa%C3%A7%C3%A3o))
 
 ## O que são containers Linux?
-Um Containers Linux é um conjunto de um ou mais processos organizados isoladamente do sistema. Todos os arquivos necessários para executá-los são fornecidos por uma imagem distinta. Na prática, os containers Linux são portáteis e consistentes durante toda a migração entre os ambientes de desenvolvimento, teste e produção. Essas características os tornam uma opção muito mais rápida do que os pipelines de desenvolvimento, que dependem da replicação dos ambientes de teste tradicionais.
+Um Containers Linux é um conjunto de um ou mais processos organizados isoladamente do sistema. Todos os arquivos necessários para executá-los são fornecidos por uma imagem distinta. Na prática, os containers Linux são portáteis e consistentes durante toda a migração entre os ambientes de desenvolvimento, teste e produção. Essas características os tornam uma opção muito mais rápida do que os *pipelines* de desenvolvimento, que dependem da replicação dos ambientes de teste tradicionais.
 
 [Fonte](https://www.redhat.com/pt-br/topics/containers/whats-a-linux-container)
+
+## O que são pipelines de desenovlvimento?
+De modo geral, uma pipeline nada mais é que um conjunto de instruções, steps, scripts ou uma sequência de passos que deverão ser executadas e que representam operações manuais, i.e. instalação de dependencias, build, etc.
+
+[Fonte](https://thihenos.medium.com/o-que-%C3%A9-uma-pipeline-para-desenvolvimento-de-softwares-para-iniciantes-9fc26150178e)
 
 # O que é Docker?
 Docker, no que se refere ao software de TI, é uma tecnologia de containerização para criação e uso de container Linux. Com o Docker é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro.
