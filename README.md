@@ -51,13 +51,14 @@ FONTE: Docker in Action
 ### O que são containers?
 Um container (ou contêiner) é uma unidade padrão de software que empacota o código e todas as suas dependências para que o aplicativo seja executado de forma rápida e confiável de um ambiente de computação para outro. Em outras palavras, os containers isolam o software de seu ambiente e garantem que ele funcione uniformemente.
 
-Um container Docker, construído a partir de uma imagem Docker, é um pacote de software leve, autonômo e executável que inclui tudo o que é necessário para executar um aplicativo: código, tempo de execução, ferramentas do sistema, bibliotecas do sistema e configurações. As imagens se tornam containers em tempo de execução e, no caso de containers Docker, as imagens se tornam containers quando são executadas no Docker Engine.
+Um *container* Docker, construído a partir de uma imagem Docker, é um pacote de software leve, autonômo e executável que inclui tudo o que é necessário para executar um aplicativo: código, tempo de execução, ferramentas do sistema, bibliotecas do sistema e configurações. As imagens se tornam *containers* em tempo de execução e, no caso de *containers* Docker, as imagens se tornam *containers* quando são executadas no Docker Engine.
 
 FONTE E MAIS INFORMAÇÕES: [Use containers to Build, Share and Run your applications](https://www.docker.com/resources/what-container)
 
-### O que são volumes?
+### O que são volumes no Docker?
+Volumes no Docker são diretórios externos ao *container* que são montados diretamente nele, não seguindo, portanto, o sistema de arquivos do *container*. A principal função do volume é persistir os dados, independentemente do estado do *container*. Visto que o sistema de arquivo do *container* é volátil, ou seja, toda a informação escrita nele é perdida quando o *container* "morre".
 
-
+FONTE E MAIS INFORMAÇÕES: [Entendendo volumes no Docker](https://www.linuxtips.io/blogs/novidades/entendendo-volumes-no-docker)
 ## Como se instala?
 Antes de prosseguir com as instalações é importante lembrar que Docker foi construído para ser usado nos SO's Linux, para é possível utilizá-lo em outros sistemas.
 
