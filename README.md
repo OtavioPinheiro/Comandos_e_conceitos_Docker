@@ -59,6 +59,7 @@ FONTE E MAIS INFORMAÇÕES: [Use containers to Build, Share and Run your applica
 Volumes no Docker são diretórios externos ao *container* que são montados diretamente nele, não seguindo, portanto, o sistema de arquivos do *container*. A principal função do volume é persistir os dados, independentemente do estado do *container*. Visto que o sistema de arquivo do *container* é volátil, ou seja, toda a informação escrita nele é perdida quando o *container* "morre".
 
 FONTE E MAIS INFORMAÇÕES: [Entendendo volumes no Docker](https://www.linuxtips.io/blogs/novidades/entendendo-volumes-no-docker)
+
 ## Como se instala?
 Antes de prosseguir com as instalações é importante lembrar que Docker foi construído para ser usado nos SO's Linux, para é possível utilizá-lo em outros sistemas.
 
@@ -336,6 +337,14 @@ Gerando uma imagem Docker para produção, temos dois pontos importantes para no
 1. Normalmente utiliza-se um servidor de proxy reverso para receber as requisições e chamar o container específico para aquela requisição. **Exemplo:** Podemos utilizar o Ngnix como servidor de proxy reverso que receberá as requisições e chamará um container PHP (rodando em *fast CGI* para conexão com o Ngnix). O container PHP, por sua vez, será executado e retornará uma resposta (*response*) para o Ngnix. O Ngnix então, irá retornar essa resposta para o usuário final.
 2. Para reduzir o tamanho da imagem, pode-se utilizar o alpine linux. E, por ser um sistema bem enxuto, costuma-se realizar o *multistage building*, aonde o processo de *building* (construção) da imagem é feita em duas ou mais etapas.
 
+## Por que utilizar o Ngnix como servidor de *proxy* reverso?
+Frequentemente você irá se deparar com o Ngnix sendo utilizado como servidor de *proxy* reverso, isso se deve ao fato das diversas funcionalidades que o servidor Ngnix apresenta, mas antes de apresentar as vantagens, vamos entender o que é o Nginx.
+
+### Ngnix
+Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy mail* e um servidor de *proxy* TCP/UDP genérico, originalmente escrito por Igor Sysoev.
+
+[Fonte](https://nginx.org/en/)
+
 **Exemplo:**
 - [Dockerfile produção](laravel/Dockerfile.prod). Para executar: `docker build -t <usuário>/laravel:prod laravel -f laravel/Dockerfile.prod`
 
@@ -355,7 +364,6 @@ Gerando uma imagem Docker para produção, temos dois pontos importantes para no
   `docker run -p 3000:3000 DockerHubID/hello-express:latest`
 
 **IMPORTANTE:** No powersheel do Windows não se utiliza `$(pwd)`, mas sim `${pwd}`.[Referência](https://stackoverflow.com/questions/45682010/docker-invalid-reference-format)
-
 
 # Referências
 1. Luiz Carlos. Guia rápido do WSL2 + Docker. https://github.com/codeedu/wsl2-docker-quickstart
