@@ -38,6 +38,8 @@ De modo geral, uma pipeline nada mais é que um conjunto de instruções, steps,
 ## *Proxy*
 *Proxy* é o termo utilizado para definir os intermediários entre o usuário e o servidor. A função da *proxy* é conectar o computar local com a rede externa do servidor, enviando solicitações do endereço local para o servidor e, posteriormente, traduzindo e repassando essa solicitação para o computador local. Todas as requisições feitas ao servidor passarão pelo *proxy*.
 
+[Fonte: TecMundo](https://www.tecmundo.com.br/navegador/972-o-que-e-proxy-.htm)
+
 # O que é Docker?
 Docker, no que se refere ao software de TI, é uma tecnologia de containerização para criação e uso de container Linux. Com o Docker é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro.
 
