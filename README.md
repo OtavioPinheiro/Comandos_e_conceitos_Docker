@@ -35,6 +35,9 @@ De modo geral, uma pipeline nada mais é que um conjunto de instruções, steps,
 
 [Fonte](https://thihenos.medium.com/o-que-%C3%A9-uma-pipeline-para-desenvolvimento-de-softwares-para-iniciantes-9fc26150178e)
 
+## *Proxy*
+*Proxy* é o termo utilizado para definir os intermediários entre o usuário e o servidor. A função da *proxy* é conectar o computar local com a rede externa do servidor, enviando solicitações do endereço local para o servidor e, posteriormente, traduzindo e repassando essa solicitação para o computador local. Todas as requisições feitas ao servidor passarão pelo *proxy*.
+
 # O que é Docker?
 Docker, no que se refere ao software de TI, é uma tecnologia de containerização para criação e uso de container Linux. Com o Docker é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro.
 
@@ -43,19 +46,19 @@ FONTE E MAIS INFORMAÇÕES:[Red Hat - O que é Docker?](https://www.redhat.com/p
 ## Conceitos
 Alguns conceitos sobre Docker.
 
-### O que são imagens?
+## O que são imagens?
 Uma imagem, nesse contexto, é um arquivo que contém outros arquivos e metadados. Os arquivos da imagem estarão disponíveis para serem usados na construção de containers e os metadados serão usados para estabelecer um relacionamento entre as imagens.
 
 FONTE: Docker in Action
 
-### O que são containers?
+## O que são containers?
 Um container (ou contêiner) é uma unidade padrão de software que empacota o código e todas as suas dependências para que o aplicativo seja executado de forma rápida e confiável de um ambiente de computação para outro. Em outras palavras, os containers isolam o software de seu ambiente e garantem que ele funcione uniformemente.
 
 Um *container* Docker, construído a partir de uma imagem Docker, é um pacote de software leve, autonômo e executável que inclui tudo o que é necessário para executar um aplicativo: código, tempo de execução, ferramentas do sistema, bibliotecas do sistema e configurações. As imagens se tornam *containers* em tempo de execução e, no caso de *containers* Docker, as imagens se tornam *containers* quando são executadas no Docker Engine.
 
 FONTE E MAIS INFORMAÇÕES: [Use containers to Build, Share and Run your applications](https://www.docker.com/resources/what-container)
 
-### O que são volumes no Docker?
+## O que são volumes no Docker?
 Volumes no Docker são diretórios externos ao *container* que são montados diretamente nele, não seguindo, portanto, o sistema de arquivos do *container*. A principal função do volume é persistir os dados, independentemente do estado do *container*. Visto que o sistema de arquivo do *container* é volátil, ou seja, toda a informação escrita nele é perdida quando o *container* "morre".
 
 FONTE E MAIS INFORMAÇÕES: [Entendendo volumes no Docker](https://www.linuxtips.io/blogs/novidades/entendendo-volumes-no-docker)
@@ -64,7 +67,7 @@ FONTE E MAIS INFORMAÇÕES: [Entendendo volumes no Docker](https://www.linuxtips
 Antes de prosseguir com as instalações é importante lembrar que Docker foi construído para ser usado nos SO's Linux, para é possível utilizá-lo em outros sistemas.
 
 ### Linux
-
+Em breve...
 
 ### Windows
 O Docker pode ser utilizado no Windows por meio de virtulização. Para isso há três maneiras de se prosseguir.
