@@ -353,6 +353,23 @@ Gerando uma imagem Docker para produção, temos dois pontos importantes para no
 1. Normalmente utiliza-se um servidor de proxy reverso para receber as requisições e chamar o container específico para aquela requisição. **Exemplo:** Podemos utilizar o Ngnix como servidor de proxy reverso que receberá as requisições e chamará um container PHP (rodando em *fast CGI* para conexão com o Ngnix). O container PHP, por sua vez, será executado e retornará uma resposta (*response*) para o Ngnix. O Ngnix então, irá retornar essa resposta para o usuário final.
 2. Para reduzir o tamanho da imagem, pode-se utilizar o alpine linux. E, por ser um sistema bem enxuto, costuma-se realizar o *multistage building*, aonde o processo de *building* (construção) da imagem é feita em duas ou mais etapas.
 
+[Prática](#multistage-building-utilizando-nginx-como-proxy-reverso)
+
+## Explicações
+Dockerfile.prod do laravel:
+- Escolhendo o WORKDIR do php-fpm-alpine, utilizamos a pasta `/var/www` e executamos o comando `rm -rf /var/www/html` para remover a pasta html que está dentro de www, pois não queremos que a pasta html esteja lá.
+- Nomeamos o estágio anterior do *build* como `builder`, para ficar mais fácil de referenciar o estágio. Em seguida utilizamos o `COPY --from=builder /var/www/laravel .`, este comando significa que do *build* anterior iremos copiar tudo que está na pasta `/var/www/laravel` e copiar para a pasta do *build* atual, que é a `/var/www`.
+- Executamos o comando `ln -s public html` para criar um link simbólico da pasta html para a pasta *public*, ou seja, sempre que a pasta html for acessada, ela irá nos redirecionar para a pasta *public*. A pasta *public* é aonde o laravel costuma guardar arquivos de imagens, o arquivo principal index.php que faz as chamadas, etc.
+- Em seguida executamos o comando `chown -R www-data:www-data /var/www` para definir como dono da pasta `/var/www` o www-data, conseguindo, assim, gravar arquivos.
+- Exposmos a porta 9000
+- Passamos o comando que irá executar o php `php-fpm`.
+
+Dockerfile.prod do Nginx:
+- Escolhemos a imagem do nginx alpine
+- Executamos um comando para remover o arquivo de configuração padrão do nginx, porque iremos utilizar o arquivo de configurações que criamos.
+- Executamos o comando para copiar o arquivo de configurações do nginx que criamos para dentro da pasta do nginx.
+- Criamos a pasta `/var/www/html` e criamos o arquivo index.php dentro desta pasta. Isso é importante, pois, quando o usuário acessar qualquer endereço do nginx, o nginx chamará o php e para isso ocorrer o arquivo index.php tem que existir dentro do *container* nginx, caso contrário, o nginx irá devolver um erro 404.
+
 ## Por que utilizar o Ngnix como servidor de *proxy* reverso?
 Frequentemente você irá se deparar com o Ngnix sendo utilizado como servidor de *proxy* reverso, isso se deve ao fato das diversas funcionalidades que o servidor Ngnix apresenta, mas antes de apresentar as vantagens, vamos entender o que é o Nginx.
 
