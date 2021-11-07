@@ -379,6 +379,16 @@ Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy
   `docker build -t DockerHubID/hello-express .`
   `docker run -p 3000:3000 DockerHubID/hello-express:latest`
 
+## Multistage Building utilizando Nginx como *proxy* reverso
+- [Dockerfile.prod laravel](./laravel/Dockerfile.prod)
+- [Dockerfile.prod nginx](./nginx/Dockerfile.prod)
+- Terminal
+  - `docker network create laranet`
+  - `docker build -t DockerHubID/laravel:prod laravel laravel/Dockerfile.prod`
+  - `docker build -t DockerHubID/nginx:prod nginx nginx/Dockerfile.prod`
+  - `docker run -d --network laranet --name laravel DockerHubID/laravel:prod`
+  - `docker run -d --network laranet --name nginx -p 8080:80 DockerHubID/laravel:prod`
+
 **IMPORTANTE:** No powersheel do Windows não se utiliza `$(pwd)`, mas sim `${pwd}`.[Referência](https://stackoverflow.com/questions/45682010/docker-invalid-reference-format)
 
 # Referências
