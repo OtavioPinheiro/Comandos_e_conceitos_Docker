@@ -38,6 +38,17 @@ De modo geral, uma pipeline nada mais é que um conjunto de instruções, steps,
 ## *Proxy*
 *Proxy* é o termo utilizado para definir os intermediários entre o usuário e o servidor. A função da *proxy* é conectar o computar local com a rede externa do servidor, enviando solicitações do endereço local para o servidor e, posteriormente, traduzindo e repassando essa solicitação para o computador local. Todas as requisições feitas ao servidor passarão pelo *proxy*.
 
+Existem outros tipos de *proxy*, como as *Web proxy*, *Open proxy*, Redes *proxy*.
+
+### Web proxy
+Existe, ainda, um outro tipo de proxy, os web proxies. Eles são uma versão que esconde o seu IP real e lhe permite navegar anonimamente. Muitos deles são utilizados em redes fechadas como universidades e ambientes de trabalho para burlar uma determinação de bloqueio a alguns sites da internet. Os conteúdos campeões de bloqueio são: sites de relacionamento (Orkut, facebook e outros), programas de troca de mensagem instantânea (Msn Messenger, Yahoo! Messenger e outros), sem contar os tão proibidos sites de pornografia.
+
+### Open proxy
+As conexões abertas de proxy  (open proxy) são o tipo mais perigoso e convidativo aos crackers e usuários mal intencionados. Quando um destes usuários consegue acessar um computador, instala um servidor proxy nele para que possa entrar quando quiser na máquina e promover diversos tipos de ilegalidade como scripts que roubam senhas de bancos, fraudes envolvendo cartões de crédito e uma grande variedade de atos ilegais.
+
+### Redes proxy
+As redes proxy são baseadas em códigos criptados que permitem a comunicação anônima entre os usuários. Exemplo deste tipo de rede são as conexões P2P (peer to peer) em que um usuário se conecta ao outro sem saber sua identidade e trocam arquivos entre si. Estas redes se caracterizam por não permitirem o controle dos servidores, os usuários comuns é quem providenciam todo o conteúdo e os arquivos. Certamente, muitos destes computadores são usados por pessoas mal intencionadas com segundas intenções. Por isso, deve-se ter em mente que qualquer promessa de privacidade e segurança é mais do que rara.
+
 [Fonte: TecMundo](https://www.tecmundo.com.br/navegador/972-o-que-e-proxy-.htm)
 
 # O que é Docker?
