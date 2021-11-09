@@ -381,6 +381,8 @@ Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy
 **Exemplo:**
 - [Dockerfile produção](laravel/Dockerfile.prod). Para executar: `docker build -t <usuário>/laravel:prod laravel -f laravel/Dockerfile.prod`
 
+# Docker Compose
+
 # Exercícios
 ## Docker + Laravel
 - [Dockerfile](./laravel/Dockerfile)
