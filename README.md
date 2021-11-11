@@ -382,7 +382,9 @@ Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy
 - [Dockerfile produção](laravel/Dockerfile.prod). Para executar: `docker build -t <usuário>/laravel:prod laravel -f laravel/Dockerfile.prod`
 
 # Docker Compose
-O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arquivo de manifesto YAML, é possível subir todos os containers desejados de forma automática.
+O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arquivo de manifesto YAML, é possível configurar, iniciar e subir todos os containers desejados de forma automática com apenas um único comando.
+
+[Fonte: Docker Docs](https://docs.docker.com/compose/)
 
 # Exercícios
 ## Docker + Laravel
