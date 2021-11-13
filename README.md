@@ -387,6 +387,9 @@ O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arq
 [Fonte: Docker Docs](https://docs.docker.com/compose/)
 
 ## YAML
+YAML é uma linguagem que foi lançada em 2001 e é um acrônimo recursivo para YAML Ain't Markup Language. Ela foi baseada em linguagens como Python, XML, C, etc. É bastante utilizada para arquivos de configuração, assim como o JSON e o XML.
+
+[Fonte](https://www.treinaweb.com.br/blog/o-que-e-yaml/)
 
 # Exercícios
 ## Docker + Laravel
