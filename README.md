@@ -374,7 +374,7 @@ Dockerfile.prod do Nginx:
 Frequentemente você irá se deparar com o Ngnix sendo utilizado como servidor de *proxy* reverso, isso se deve ao fato das diversas funcionalidades que o servidor Ngnix apresenta, mas antes de apresentar as vantagens, vamos entender o que é o Nginx.
 
 ### Ngnix
-Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy mail* e um servidor de *proxy* TCP/UDP genérico, originalmente escrito por Igor Sysoev.
+Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy mail* e um servidor de *proxy* TCP/UDP genérico, originalmente escrito por Igor Sysoev. Por muito tempo, ele foi executado em muitos sites russos, incluindo Yandex , Mail.Ru , VK e Rambler. De acordo com a Netcraft, o nginx atendeu ou fez proxy de 22,50% dos sites mais ocupados em outubro de 2021. Aqui estão algumas das histórias de sucesso: Dropbox, Netflix, Wordpress.com, FastMail.FM.
 
 [Fonte](https://nginx.org/en/)
 
