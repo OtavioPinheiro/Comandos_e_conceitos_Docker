@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  laravel:
+    image: 171793/laravel:prod
+    container_name: laravel
+    networks:
+      - laranet
+
+  nginx:
+    image: 171793/nginx:prod
+    container_name: nginx
+    networks:
+      - laranet
+    ports:
+      - "8080:80"
