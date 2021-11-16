@@ -15,3 +15,7 @@ services:
       - laranet
     ports:
       - "8080:80"
+
+networks:
+  laranet:
+    driver: bridge

@@ -194,6 +194,9 @@ Lista de comandos do Docker
 | `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
 | `docker volume`. | Lista os comandos de gerenciamento de volumes do Docker. |
 
+# Comandos Docker-compose
+| `docker-compose up` | Sobe todos os containers especificados no documento de manifesto YAML. |
+| `docker-compose down` | Remove todos os containers especificados no documento de manifesto YAML. |
 
 ## Dockerfile
 O Docker pode criar (ou construir) imagens a partir da leitura de instruções presentes no arquivo *Dockerfile*. *Dockerfile* é um documento (arquivo) de texto que contém todos os comandos que um usuário poderia chamar na linha de comando para montar uma imagem (Docker Docs). Usando o comando `docker build`, os usuários podem criar uma *build* automatizada que executa diversas instruções de linha de comando em sequência.
@@ -390,8 +393,6 @@ O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arq
 YAML é uma linguagem que foi lançada em 2001 e é um acrônimo recursivo para YAML Ain't Markup Language. Ela foi baseada em linguagens como Python, XML, C, etc. É bastante utilizada para arquivos de configuração, assim como o JSON e o XML.
 
 [Fonte](https://www.treinaweb.com.br/blog/o-que-e-yaml/)
-
-# Comandos Docker-compose
 
 # Exercícios
 ## Docker + Laravel
