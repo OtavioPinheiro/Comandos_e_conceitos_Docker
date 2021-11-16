@@ -391,6 +391,8 @@ YAML é uma linguagem que foi lançada em 2001 e é um acrônimo recursivo para 
 
 [Fonte](https://www.treinaweb.com.br/blog/o-que-e-yaml/)
 
+# Comandos Docker-compose
+
 # Exercícios
 ## Docker + Laravel
 - [Dockerfile](./laravel/Dockerfile)
