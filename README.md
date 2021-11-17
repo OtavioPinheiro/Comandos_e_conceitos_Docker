@@ -194,6 +194,11 @@ Lista de comandos do Docker
 | `docker volume rm $(docker volume ls -q)`. | Remove todos os volumes listados. |
 | `docker volume`. | Lista os comandos de gerenciamento de volumes do Docker. |
 
+# Docker Compose
+O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arquivo de manifesto YAML, é possível configurar, iniciar e subir todos os containers desejados de forma automática com apenas um único comando.
+
+[Fonte: Docker Docs](https://docs.docker.com/compose/)
+
 # Comandos Docker-compose
 | `docker-compose up` | Cria e inicia todos os containers especificados no documento de manifesto YAML. |
 | `docker-compose down` | Para e remove todos os containers especificados no documento de manifesto YAML. |
@@ -386,11 +391,6 @@ Ngnix é um servidor HTTP, um servidor de *proxy* reverso, um servidor de *proxy
 
 **Exemplo:**
 - [Dockerfile produção](laravel/Dockerfile.prod). Para executar: `docker build -t <usuário>/laravel:prod laravel -f laravel/Dockerfile.prod`
-
-# Docker Compose
-O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arquivo de manifesto YAML, é possível configurar, iniciar e subir todos os containers desejados de forma automática com apenas um único comando.
-
-[Fonte: Docker Docs](https://docs.docker.com/compose/)
 
 ## YAML
 YAML é uma linguagem que foi lançada em 2001 e é um acrônimo recursivo para YAML Ain't Markup Language. Ela foi baseada em linguagens como Python, XML, C, etc. É bastante utilizada para arquivos de configuração, assim como o JSON e o XML.
