@@ -9,7 +9,13 @@ services:
     tty: true
     volumes:
       -./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
+    network_mode:
+      - node-network
 
 networks:
-  laranet:
+  node-network:
     driver: bridge
