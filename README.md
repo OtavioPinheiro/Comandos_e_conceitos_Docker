@@ -199,6 +199,9 @@ O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arq
 
 [Fonte: Docker Docs](https://docs.docker.com/compose/)
 
+## Docker-compose com MySQL
+Assim como foi feito com laravel, nginx, nodeJS, etc, é possível criar um serviço MySQL no arquivo YAML e, posteriormente, subir o container com esse serviço instalado nele.
+
 # Comandos Docker-compose
 | `docker-compose up` | Cria e inicia todos os containers especificados no documento de manifesto YAML. |
 | `docker-compose down` | Para e remove todos os containers especificados no documento de manifesto YAML. |
