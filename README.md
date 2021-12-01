@@ -203,8 +203,9 @@ O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arq
 Assim como foi feito com laravel, nginx, nodeJS, etc, é possível criar um serviço MySQL no arquivo YAML e, posteriormente, subir o container com esse serviço instalado nele.
 
 # Comandos Docker-compose
-| `docker-compose up` | Cria e inicia todos os containers especificados no documento de manifesto YAML. |
-| `docker-compose down` | Para e remove todos os containers especificados no documento de manifesto YAML. |
+| `docker compose up` | Cria e inicia todos os containers especificados no documento de manifesto YAML. |
+| `docker compose down` | Para e remove todos os containers especificados no documento de manifesto YAML. |
+| `docker compose build` | Realiza o *build* (construção) dos serviços do *container* ou o *rebuild* |
 
 ## Docker-compose YAML - Explicando alguns parâmetros e comandos
 Parâmetro `image` do documento de manifesto YAML do docker-compose, inserido dentro do parâmetro `service`, espera receber o nome de uma imagem que está ou será construída. Se a imagem não estiver previamente construída e quisermos construí-la a partir de um dockerfile precisaremos inserir o parâmetro `build`, `context` e `dockerfile`. Podemos deixar o nome da imagem como referência para que o docker-compose crie a imagem com o mesmo nome ou não passamos nada e ele criará uma imagem com um nome aleatório. Podemos passar o comando  `build` dentro do serviço que será criado e dentro do `build` passamos o `context` que é o contexto, nele passamos a pasta onde temos o dockerfile, em seguida inserimos o parâmetro `dockerfile` e nele fornecemos o nome do dockerfile que será usado para construir a imagem.
