@@ -211,6 +211,8 @@ Assim como foi feito com laravel, nginx, nodeJS, etc, é possível criar um serv
 | `docker compose create` | Cria *containers* para um serviço |
 | `docker compose exec` | Executa um comando em um *container* que está em execução |
 | `docker compose images` | Lista as imagens usadas pelo *container* que foi criado |
+| `docker compose kill` | Força os *containers* a pararem |
+
 
 ## Docker-compose YAML - Explicando alguns parâmetros e comandos
 Parâmetro `image` do documento de manifesto YAML do docker-compose, inserido dentro do parâmetro `service`, espera receber o nome de uma imagem que está ou será construída. Se a imagem não estiver previamente construída e quisermos construí-la a partir de um dockerfile precisaremos inserir o parâmetro `build`, `context` e `dockerfile`. Podemos deixar o nome da imagem como referência para que o docker-compose crie a imagem com o mesmo nome ou não passamos nada e ele criará uma imagem com um nome aleatório. Podemos passar o comando  `build` dentro do serviço que será criado e dentro do `build` passamos o `context` que é o contexto, nele passamos a pasta onde temos o dockerfile, em seguida inserimos o parâmetro `dockerfile` e nele fornecemos o nome do dockerfile que será usado para construir a imagem.
