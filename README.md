@@ -203,6 +203,11 @@ O Docker Compose é uma ferramenta complementar ao Docker que, baseado em um arq
 ## Docker-compose com MySQL
 Assim como foi feito com laravel, nginx, nodeJS, etc, é possível criar um serviço MySQL no arquivo YAML e, posteriormente, subir o container com esse serviço instalado nele.
 
+No arquivo YAML, [docker-compose](./docker-compose.yaml), quando fornecemos os parâmetros do campo *environment*, assim que o *container* for executado, um banco de dados será criado usando as variáveis de ambiente definidas como usuário e senha. Esse processo facilita a criação de um banco de dados.
+
+**IMPORTANTE:**
+Nas novas versões da imagem do MySQL 5.7, a variável `MYSQL_USER=root` não é aceita, porque o usuário root do banco já é criado por padrão, então lançará um erro dizendo que está tentando criar um usuário que já existe. Mesmo na versões antigas, se quisermos trabalhar com usuário root do banco, esta variável não precisa ser passada, logo, basta removê-la do arquivo docker-compose.yaml.
+
 # Comandos Docker-compose
 | `docker compose up` | Cria e inicia todos os *containers* especificados no documento de manifesto YAML. |
 | `docker compose down` | Para e remove todos os *containers* especificados no documento de manifesto YAML. |
