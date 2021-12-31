@@ -166,11 +166,11 @@ Lista de comandos do Docker
 | `docker push`. | Faz um push (upload) de uma imagem que está no seu computador para um servidor, por padrão o docker hub. |
 | `docker rename`. | Renomeia um container existente. |
 | `docker restart`. | Reinicia um container que está rodando ou parado. |
+| `docker rm`. | Remove um ou mais containers pelo id. |
+| `docker rmi`. | Remove uma ou mais imagens pelo id. |
 | `docker rm $(docker ps -a -q)`. | Remove todos os containers listados. |
 | `docker rm -f $(docker ps -a -q)`. | Remove todos os containers listados, tanto os que estão rodando quanto os que não estão. As opções, `-f` é para forçar o container parar, `-a` é para listar todos os containers, até os que estão parados, `-q` é a opção *quiet* que serve para retornar apenas os id's dos containers. |
-| `docker rm`. | Remove um ou mais containers pelo id. |
 | `docker rmi $(docker images -q)`. | Remove todas as imagens listadas. |
-| `docker rmi`. | Remove uma ou mais imagens pelo id. |
 | `docker run`. | Executa um comando em um novo container |
 | `docker run -d nome_da_imagem`. | Cria um container a partir de uma imagem de modo desanexado (*detached*), liberando o terminal para outros fins. |
 | `docker run -e variavel_de_ambiente`. | Cria um container passando uma variável de ambiente. |
