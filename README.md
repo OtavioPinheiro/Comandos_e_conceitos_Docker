@@ -185,8 +185,8 @@ Lista de comandos do Docker
 | `docker run --rm`. | Por padrão os arquivos de sistema dos containers são persistidos mesmo depois do container ter sido parado, esse comportamento faz com que o processo de debugging torne-se mais fácil, porque é possível inspecionar o estado final, e todos os dados são retidos por padrão. Porém, se você estiver executando um processo primário de curta duração, esses arquivos de sistema dos containers podem se acumular. Caso deseje que o Docker remova automaticamente esses arquivos de sistema e deixe o container limpo quando o mesmo for parado(sua execução for terminada), basta adicionar a *flag* `--rm`. Vale lembrar que se a *flag* `--rm` for usada, o Docker também removerá os volumes anônimos associados ao container quando o mesmo for removido. Sendo similar ao comando `docker rm -v my-container`. Apenas os volumes definidos sem nome serão removidos. [Referência e mais informações](https://docs.docker.com/engine/reference/run/#clean-up---rm) |
 | `docker start (container-id)`. | Inicia o container informado por parâmetro. |
 | `docker stats`. | Exibe informações do uso de CPU, memória e rede. |
-| `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
 | `docker stop (container-id)`. | Para o container informado desde que esteja rodando. |
+| `docker stop $(docker ps -a -q)`. | Para todos os containers listados. |
 | `docker top`. | Exibe os processos rodando em um container. |
 | `docker volume create`. | Cria um volume. |
 | `docker volume inspect`. | Exibe as informações detalhadas de um ou mais volumes. |
