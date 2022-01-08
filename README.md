@@ -62,7 +62,7 @@ Alguns conceitos sobre Docker.
 ## O que são imagens?
 Uma imagem, nesse contexto, é um arquivo que contém outros arquivos e metadados. Os arquivos da imagem estarão disponíveis para serem usados na construção de containers e os metadados serão usados para estabelecer um relacionamento entre as imagens.
 
-FONTE: Docker in Action
+**FONTE:** Docker in Action
 
 ## O que são containers?
 Um container (ou contêiner) é uma unidade padrão de software que empacota o código e todas as suas dependências para que o aplicativo seja executado de forma rápida e confiável de um ambiente de computação para outro. Em outras palavras, os containers isolam o software de seu ambiente e garantem que ele funcione uniformemente.
