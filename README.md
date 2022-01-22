@@ -218,6 +218,23 @@ Nas novas versões da imagem do MySQL 5.7, a variável `MYSQL_USER=root` não é
 | `docker compose exec` | Executa um comando em um *container* que está em execução |
 | `docker compose images` | Lista as imagens usadas pelo *container* que foi criado |
 | `docker compose kill` | Força os *containers* a pararem |
+| `docker compose events` | Recebe os eventos vindo dos *containers* em tempo real. |
+| `docker compose logs` | Exibe os *logs* (registros) dos *containers*. |
+| `docker compose ls` | Lista os projetos do docker compose que estão em execução. |
+| `docker compose pause` | Pausa os serviços. |
+| `docker compose port` | Exibe a porta pública para a conexão de portas (*port binding*). |
+| `docker compose ps` | Lista os *containers*. |
+| `docker compose pull` | Realiza o *pull* das imagens. Ou seja, baixa as imagens do Docker Hub. |
+| `docker compose push` | Publica as imagens no Docker Hub. |
+| `docker compose restart` | Executa os *containers* novamente. |
+| `docker compose rm` | Remove os *containers* que estão parados. |
+| `docker compose run` | Executa um único comando em um container (serviço). |
+| `docker compose start` | Executa um *container* (serviço). |
+| `docker compose stop` | Para um container (serviço). |
+| `docker compose top` | Exibe os processos em execução. |
+| `docker compose unpause` | Retoma os containers (serviços). |
+
+**FONTE:** [Docker Docs - Docker compose](https://docs.docker.com/engine/reference/commandline/compose/)
 
 
 ## Docker-compose YAML - Explicando alguns parâmetros e comandos
