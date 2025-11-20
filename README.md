@@ -209,6 +209,8 @@ No arquivo YAML, [docker-compose](./docker-compose.yaml), quando fornecemos os p
 Nas novas versões da imagem do MySQL 5.7, a variável `MYSQL_USER=root` não é aceita, porque o usuário root do banco já é criado por padrão, então lançará um erro dizendo que está tentando criar um usuário que já existe. Mesmo na versões antigas, se quisermos trabalhar com usuário root do banco, esta variável não precisa ser passada, logo, basta removê-la do arquivo docker-compose.yaml.
 
 # Comandos Docker-compose
+| Comando                  | O que faz?                                           |
+|--------------------------|------------------------------------------------------|
 | `docker compose up` | Cria e inicia todos os *containers* especificados no documento de manifesto YAML. |
 | `docker compose down` | Para e remove todos os *containers* especificados no documento de manifesto YAML. |
 | `docker compose build` | Realiza o *build* (construção) dos serviços do *container* ou o *rebuild* |
